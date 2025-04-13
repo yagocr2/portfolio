@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+.section-home {
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  width: 70%;
+  height: auto;
+  padding: 1rem;
+  border: rgb(95, 0, 95) 1px solid;
+  border-radius: 1rem;
+  margin: 3em auto;
+
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 225, 225, 0.1),
+    rgba(255, 210, 210, 0.1)
+  );
+  color: white;
+}
