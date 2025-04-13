@@ -1,26 +1,18 @@
 import React from 'react';
-import Carousel from '../components/carousel';
-import yo from '../assets/yo.jpg';
+import "./modules.css";
+import '../components/typewritter'
+import Typewriter from '../components/typewritter';
 
 const Home = () => {
-  const projects = [
-    {
-      image: <img src={yo} alt="Proyecto 1" />,
-      title: "Portfolio React",
-      description: "Desarrollo de un portfolio moderno con efectos glassmorphism"
-    },
-    {
-      image: <img src={yo} alt="Proyecto 2" />,
-      title: "E-commerce",
-      description: "Plataforma de ventas con carrito dinámico"
-    },
-    // Añade más proyectos...
-  ];
+  
 
   return (
-    <section className="home">
-      <h1>Mis Proyectos</h1>
-      <Carousel items={projects} />
+    <section className="section-home">
+      <Typewriter
+        texts={["Hola, Soy Yago👋", "Soy un desarrollador FullStack"]}
+        speed={70}
+        pause={1500}
+      />
     </section>
   );
 };

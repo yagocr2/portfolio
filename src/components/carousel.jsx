@@ -7,31 +7,38 @@ const Carousel = ({ items }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
+  const [dragDistance, setDragDistance] = useState(0);
   const carouselRef = useRef(null);
 
   // Medidas del carrusel
   const getItemWidth = () => {
-    return carouselRef.current?.children[0]?.offsetWidth || 300; // Ancho base de la Card
+    return carouselRef.current?.children[0]?.offsetWidth || 300;
   };
 
-  const getSpacing = () => 30; // Espacio entre cards
+  const getSpacing = () => 30;
 
   // Eventos de arrastre
   const handleMouseDown = (e) => {
     setIsDragging(true);
     setStartX(e.clientX || e.touches[0].clientX);
+    setDragDistance(0);
   };
 
   const handleMouseMove = (e) => {
     if (!isDragging) return;
+    
     const currentX = e.clientX || e.touches[0].clientX;
     const deltaX = currentX - startX;
+    setDragDistance(Math.abs(deltaX));
     setTranslateX(-activeIndex * (getItemWidth() + getSpacing()) + deltaX);
   };
 
   const handleMouseUp = () => {
     if (!isDragging) return;
     setIsDragging(false);
+
+    // Solo considerar clic si el arrastre fue menor a 5px
+    if (dragDistance < 5) return;
 
     const delta = translateX + activeIndex * (getItemWidth() + getSpacing());
     const direction = delta > 0 ? -1 : 1;
@@ -41,14 +48,15 @@ const Carousel = ({ items }) => {
     setTranslateX(-newIndex * (getItemWidth() + getSpacing()));
   };
 
-  // Autoplay
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex(prev => (prev + 1) % items.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, [activeIndex, items.length]);
+  // Redirección solo en clic válido
+  const handleCardClick = (url) => (e) => {
+    if (dragDistance >= 5) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    window.location.href = url;
+  };
 
   return (
     <div className="snap-carousel"
@@ -75,6 +83,7 @@ const Carousel = ({ items }) => {
             title={item.title}
             description={item.description}
             className="carousel-card"
+            onClick={handleCardClick(item.url)}
           />
         ))}
       </div>
