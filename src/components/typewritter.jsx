@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 const Typewriter = ({ texts, speed = 50, pause = 1500 }) => {
   const [displayText, setDisplayText] = useState('');
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [phase, setPhase] = useState('typing'); // typing | pausing | deleting | waiting
   const [textIndex, setTextIndex] = useState(0);
 

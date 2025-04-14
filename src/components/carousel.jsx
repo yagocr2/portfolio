@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import Card from './cards';
 import './components.css';
+import Card from './Cards'
 
 const Carousel = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);

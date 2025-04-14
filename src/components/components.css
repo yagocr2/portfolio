@@ -128,7 +128,7 @@
 
 .cursor {
   animation: cursor-blink 1s infinite;
-  color: #4fd1c5;
+  color: #fff;
   margin-left: 3px;
 }
 
@@ -140,4 +140,102 @@
 @keyframes cursor-blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+.socials-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  padding: 1rem 1rem;
+  border-radius: 3rem;
+  backdrop-filter: blur(10px);
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.social-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.social-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.profile-frame {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-frame:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.profile-frame:hover .profile-image {
+  transform: scale(1.08);
+}
+
+/* Efecto de brillo al hacer hover */
+.profile-frame::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, 
+    rgba(255, 255, 255, 0.4) 0%, 
+    rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-frame:hover::after {
+  opacity: 1;
 }
