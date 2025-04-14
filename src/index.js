@@ -4,12 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Home from './modules/Home';
 import Works from './modules/Works';
+import Experiencia from './modules/Experience';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Home/>
+    <Experiencia/>
     <Works/>
   </React.StrictMode>
 );
