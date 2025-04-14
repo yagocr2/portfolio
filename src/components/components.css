@@ -26,37 +26,16 @@
   pointer-events: auto;
 }
 .card-image-container:hover {
-  transform: scale(1.05);
+  transform: scale(1.10);
   z-index: 2;
 }
 .card-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  user-select: none;
-  -webkit-user-drag: none;
-}
-.carousel-card:hover {
-  transform: scale(2) translateY(-5px);
-  z-index: 2;
-}
-
-.carousel-card:hover .card { /* ✅ Efecto unificado */
-  transform: translateY(-5px) scale(1.02);
-}
-
-.card-image {
-  width: 100%;
-  height: 200px;
   border-radius: 0.5rem;
   overflow: hidden;
   position: relative;
-}
-
-.card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .card-content {
@@ -68,7 +47,6 @@
 
 .card-title {
   margin: 0;
-  color: white;
   font-size: 1.5rem;
 }
 
@@ -76,47 +54,77 @@
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
-.snap-carousel {
-  --spacing: 30px;
-  overflow: hidden;
-  width: 90%;
-  margin: 2rem auto;
-  padding: 1rem 0;
-  min-height: 450px; /* ✅ Altura mínima */
-}
+/* Estilos para el carrusel estilo Tinder */
 
-.carousel-track {
+.tinder-carousel {
+  width: 100%;
+  max-width: auto;
+  height: 29em;
+  position: relative;
   display: flex;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-  opacity 0.3s ease;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tinder-cards-container {
+  width: 100%;
+  height: 28em;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tinder-card {
+  position: absolute;
+  max-width: 400px;
+  height: auto;
   cursor: grab;
+  transition: transform 0.2s ease, opacity 0.2s ease;
   will-change: transform;
-  padding: 0 calc(var(--spacing) / 2);
-  gap: var(--spacing); /* ✅ Espaciado moderno */
-  align-items: center; /* ✅ Alineación vertical */
+}
+.tinder-card:hover {
+  transform: scale(1.05);
+}
+.tinder-card:active {
+  cursor: grabbing;
 }
 
-.carousel-card {
-  flex: 0 0 auto;
-  width: 300px;
-}
-.card:active {
-  transform: scale(0.98);
-}
-@media (max-width: 768px) {
-  .snap-carousel {
-    width: 95%;
-  }
-  
-  .carousel-card {
-    width: 85vw;
-    min-width: 250px;
-  }
+/* Estilos para los indicadores de swipe */
+.tinder-card.swipe-right-indicator::before {
+  content: 'ME GUSTA';
+  position: absolute;
+  top: 1em;
+  right: .5em;
+  color: #28a745;
+  font-size: 24px;
+  font-weight: bold;
+  transform: rotate(15deg);
+  border: 3px solid #28a745;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 100;
 }
 
+.tinder-card.swipe-left-indicator::before {
+  content: 'PASAR';
+  position: absolute;
+  top: 1em;
+  left: .5em;
+  color: #dc3545;
+  font-size: 24px;
+  font-weight: bold;
+  transform: rotate(-15deg);
+  border: 3px solid #dc3545;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 100;
+}
 
 .typewriter-heading {
   font-size: clamp(2rem, 5vw, 3rem);

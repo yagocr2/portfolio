@@ -21,16 +21,16 @@ const Home = () => {
         imageSrc={yo}
         altText="Yago Calero - Desarrollador Full Stack"
       />
+      <section className="socials-container">
+        <SocialLink url="https://linkedin.com/in/yagocr" icon={SocialIcons.linkedin} label={"Linkedin"} />
+        <SocialLink url="https://github.com/yagocr2" icon={SocialIcons.github} label={"Github"} />
+        <SocialLink url="" icon={SocialIcons.email} label={"Mail"} />
+      </section>
       <section>
         <p className="subtitle">
           Desarrollador FullStack con experiencia en Java, C#, .NET, y bases de
           datos. Me apasiona crear aplicaciones web modernas y eficientes.
         </p>
-      </section>
-      <section className="socials-container">
-        <SocialLink url="https://linkedin.com/in/yagocr" icon={SocialIcons.linkedin} label={"Linkedin"} />
-        <SocialLink url="https://github.com/yagocr2" icon={SocialIcons.github} label={"Github"} />
-        <SocialLink url="" icon={SocialIcons.email} label={"Mail"} />
       </section>
     </div>
   );

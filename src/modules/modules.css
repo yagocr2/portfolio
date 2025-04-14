@@ -20,11 +20,8 @@
 .home .subtitle{
   text-align: center;
   width: 70%; 
-  margin: 1em auto;
+  margin: 0 auto 2em auto;
   padding: 1em;
-}
-.socials-container {
-  margin-top: 1rem;
 }
 .works {
   justify-content: center;
