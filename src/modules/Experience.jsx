@@ -25,12 +25,20 @@ const Experience = () => {
         "Terminé mi ciclo superior en Desarrollo de Aplicaciones Multiplataforma en el Instituto de Educación Superior Trassierra",
     },
     {
+      year: "2023",
+      title: "Bachillerato",
+      organization: "IES Trassierra",
+      description:
+        "Termine mi bachillerato en el Instituto de Educación Superior Trassierra"
+    },
+    {
       year: "2022",
       title: "Curso de Ingles B2",
       organization: "Cámara de Comercio",
       description:
-        "Realicé un curso intensivo de inglés B2, mejorando mis habilidades de comunicación y comprensión en el idioma.\nComplete el curso consiguiedo mi certificado B2 con Oxford.",
+        "Realicé un curso intensivo de inglés B2, mejorando mis habilidades de comunicación y comprensión en el idioma. Complete el curso consiguiedo mi certificado B2 con Oxford.",
     },
+    
   ];
 
   const [activeTab, setActiveTab] = useState("work");
