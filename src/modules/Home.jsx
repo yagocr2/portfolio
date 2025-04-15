@@ -4,7 +4,7 @@ import Typewriter from "../components/TypeWritter";
 import SocialLink from "../components/SocialLink";
 import { SocialIcons } from "../assets/icons";
 import ProfilePhoto from "../components/Profile";
-import yo from '../assets/yoSevilla.jpg';
+import yo from '../assets/yoSevilla.webp';
 
 
 const Home = () => {
