@@ -4,50 +4,85 @@ import './timeline.css';
 const Timeline = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [positions, setPositions] = useState([]);
+  const [timelineHeight, setTimelineHeight] = useState(0);
   const timelineRef = useRef(null);
   const lineRef = useRef(null);
   const itemRefs = useRef([]);
   const pointRefs = useRef([]);
+  const contentRef = useRef(null);
   const isMobile = useRef(window.innerWidth <= 768);
+
+  // Calcular altura dinámica basada en el contenido
+  const calculateTimelineHeight = () => {
+    if (!contentRef.current) return;
+    
+    const contentHeight = contentRef.current.scrollHeight;
+    const minHeight = Math.max(contentHeight, window.innerHeight * 0.8);
+    setTimelineHeight(minHeight);
+  };
+
+  // Calcular posiciones de los puntos en la línea
+  const calculatePositions = () => {
+    // Solo calcular posiciones si no estamos en vista móvil
+    if (isMobile.current) return;
+    
+    const container = timelineRef.current;
+    const content = contentRef.current;
+    if (!container || !content) return;
+
+    // Calcular posiciones basadas en el contenido real
+    const newPositions = itemRefs.current.map((item, index) => {
+      if (!item) return 0;
+      
+      const itemRect = item.getBoundingClientRect();
+      const contentRect = content.getBoundingClientRect();
+      
+      // Calcular posición relativa al contenido total
+      const itemCenter = itemRect.top + itemRect.height / 2 - contentRect.top;
+      const totalContentHeight = content.scrollHeight;
+      
+      // Convertir a porcentaje con un margen de seguridad
+      const percentage = Math.max(5, Math.min(95, (itemCenter / totalContentHeight) * 100));
+      
+      return percentage;
+    });
+
+    setPositions(newPositions);
+  };
 
   useEffect(() => {
     const handleResize = () => {
       isMobile.current = window.innerWidth <= 768;
       if (!isMobile.current) {
         calculatePositions();
+        calculateTimelineHeight();
       }
     };
 
-    const calculatePositions = () => {
-      // Solo calcular posiciones si no estamos en vista móvil
-      if (isMobile.current) return;
-      
-      const container = timelineRef.current;
-      const line = lineRef.current;
-      if (!container || !line) return;
+    // Calcular después de que el DOM se haya actualizado
+    setTimeout(() => {
+      calculateTimelineHeight();
+      calculatePositions();
+    }, 100);
 
-      // Para escritorio (timeline vertical)
-      const newPositions = itemRefs.current.map((item) => {
-        if (!item) return 0;
-        const itemRect = item.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const lineRect = line.getBoundingClientRect();
-        
-        return ((itemRect.top + itemRect.height/2 - containerRect.top) / lineRect.height * 100);
-      });
-
-      setPositions(newPositions);
-    };
-
-    calculatePositions();
     window.addEventListener('resize', handleResize);
     
     return () => window.removeEventListener('resize', handleResize);
   }, [items]);
 
+  // Recalcular cuando cambien los items
+  useEffect(() => {
+    setTimeout(() => {
+      calculateTimelineHeight();
+      if (!isMobile.current) {
+        calculatePositions();
+      }
+    }, 100);
+  }, [items.length]);
+
   // Manejar clic en un punto del timeline solo en vista desktop
   const handlePointClick = (index) => {
-    if (isMobile.current) return; // No hacer nada en vista móvil
+    if (isMobile.current) return;
     
     setActiveIndex(index);
     
@@ -63,42 +98,94 @@ const Timeline = ({ items }) => {
   // Detector de elementos en viewport solo para desktop
   useEffect(() => {
     if (isMobile.current) {
-      // En móvil, hacer que todos los ítems sean activos
       setActiveIndex(-1); // Valor especial para indicar "todos activos"
       return;
     }
     
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5
+    let ticking = false;
+    let lastUpdate = 0;
+    
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const now = Date.now();
+          // Throttle para evitar demasiadas actualizaciones
+          if (now - lastUpdate > 50) {
+            updateActiveIndex();
+            lastUpdate = now;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const index = parseInt(entry.target.dataset.index);
-          setActiveIndex(index);
+    const updateActiveIndex = () => {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const centerY = scrollY + windowHeight / 2;
+      
+      let closestIndex = 0;
+      let minDistance = Infinity;
+      
+      itemRefs.current.forEach((item, index) => {
+        if (!item) return;
+        
+        const rect = item.getBoundingClientRect();
+        const itemCenterY = scrollY + rect.top + rect.height / 2;
+        const distance = Math.abs(centerY - itemCenterY);
+        
+        if (distance < minDistance) {
+          minDistance = distance;
+          closestIndex = index;
         }
       });
-    }, observerOptions);
-
-    // Observar cada elemento del timeline
-    itemRefs.current.forEach(item => {
-      if (item) observer.observe(item);
-    });
-
-    return () => {
-      itemRefs.current.forEach(item => {
-        if (item) observer.unobserve(item);
+      
+      // Solo actualizar si hay un cambio real y ha pasado suficiente tiempo
+      setActiveIndex(prev => {
+        if (prev !== closestIndex) {
+          return closestIndex;
+        }
+        return prev;
       });
+    };
+
+    // Establecer el índice inicial después de que todo esté renderizado
+    const initialTimeout = setTimeout(() => {
+      updateActiveIndex();
+    }, 200);
+    
+    // Escuchar scroll con throttle
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(initialTimeout);
     };
   }, [items]);
 
+  // Calcular espaciado dinámico entre elementos
+  const getItemSpacing = () => {
+    const baseSpacing = 100; // espaciado base en px
+    const itemCount = items.length;
+    
+    if (itemCount <= 2) return baseSpacing * 1.5;
+    if (itemCount <= 4) return baseSpacing;
+    return Math.max(baseSpacing * 0.7, 60); // Mínimo de 60px
+  };
+
   return (
-    <div className="timeline-container" ref={timelineRef}>
+    <div 
+      className="timeline-container" 
+      ref={timelineRef}
+      style={{ minHeight: `${timelineHeight}px` }}
+    >
       {/* Timeline line - solo visible en desktop */}
-      <div className="timeline-line-container" ref={lineRef}>
+      <div 
+        className="timeline-line-container" 
+        ref={lineRef}
+        style={{ height: `${timelineHeight * 0.8}px` }}
+      >
         <div className="timeline-line"></div>
         {items.map((item, index) => (
           <div
@@ -108,7 +195,7 @@ const Timeline = ({ items }) => {
               activeIndex === index ? "active" : ""
             }`}
             style={{ 
-              top: `${positions[index] || 0}%` 
+              top: `${positions[index] || (index * (80 / Math.max(items.length - 1, 1)))}%` 
             }}
             onClick={() => handlePointClick(index)}
             data-point-index={index}
@@ -120,7 +207,11 @@ const Timeline = ({ items }) => {
       </div>
 
       {/* Contenido - visible en todas las vistas */}
-      <div className="timeline-content">
+      <div 
+        className="timeline-content"
+        ref={contentRef}
+        style={{ gap: `${getItemSpacing()}px` }}
+      >
         {items.map((item, index) => (
           <div
             key={`item-${index}`}
@@ -137,7 +228,7 @@ const Timeline = ({ items }) => {
               </div>
               <div className="timeline-subtitle">{item.organization}</div>
               <div className="timeline-description">{item.description}</div>
-              {item.skills && (
+              {item.skills && item.skills.length > 0 && (
                 <div className="timeline-skills">
                   {item.skills.map((skill, skillIndex) => (
                     <span key={skillIndex} className="timeline-skill-tag">
