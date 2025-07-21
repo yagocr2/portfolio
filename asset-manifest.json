@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "./static/css/main.e22c7ad5.css",
-    "main.js": "./static/js/main.74ae6764.js",
-    "static/js/453.1407b060.chunk.js": "./static/js/453.1407b060.chunk.js",
-    "static/media/InicioSesion.webp": "./static/media/InicioSesion.18e9b6481f49801cdfbd.webp",
-    "static/media/yoSevilla.webp": "./static/media/yoSevilla.7547e60c619e019c4f00.webp",
-    "static/media/NavBar.webp": "./static/media/NavBar.fd81cd71f0791a83fc8e.webp",
-    "static/media/calculadora.webp": "./static/media/calculadora.2a2d24d8177e12b6f331.webp",
-    "index.html": "./index.html",
-    "main.e22c7ad5.css.map": "./static/css/main.e22c7ad5.css.map",
-    "main.74ae6764.js.map": "./static/js/main.74ae6764.js.map",
-    "453.1407b060.chunk.js.map": "./static/js/453.1407b060.chunk.js.map"
+    "main.css": "/portfolio/static/css/main.e22c7ad5.css",
+    "main.js": "/portfolio/static/js/main.0cd661ec.js",
+    "static/js/453.1407b060.chunk.js": "/portfolio/static/js/453.1407b060.chunk.js",
+    "static/media/InicioSesion.webp": "/portfolio/static/media/InicioSesion.18e9b6481f49801cdfbd.webp",
+    "static/media/yoSevilla.webp": "/portfolio/static/media/yoSevilla.7547e60c619e019c4f00.webp",
+    "static/media/NavBar.webp": "/portfolio/static/media/NavBar.fd81cd71f0791a83fc8e.webp",
+    "static/media/calculadora.webp": "/portfolio/static/media/calculadora.2a2d24d8177e12b6f331.webp",
+    "index.html": "/portfolio/index.html",
+    "main.e22c7ad5.css.map": "/portfolio/static/css/main.e22c7ad5.css.map",
+    "main.0cd661ec.js.map": "/portfolio/static/js/main.0cd661ec.js.map",
+    "453.1407b060.chunk.js.map": "/portfolio/static/js/453.1407b060.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e22c7ad5.css",
-    "static/js/main.74ae6764.js"
+    "static/js/main.0cd661ec.js"
   ]
 }
