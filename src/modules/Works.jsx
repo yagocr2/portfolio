@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from '../components/Carousel';
+import Carousel from "../components/Carousel";
 import calculadora from '../assets/calculadora.webp';
 import inicioSesion from '../assets/InicioSesion.webp';
 import navBar from '../assets/NavBar.webp';

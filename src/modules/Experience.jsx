@@ -30,7 +30,7 @@ const Experience = () => {
       title: "Bachillerato",
       organization: "IES Trassierra",
       description:
-        "Termine mi bachillerato en el Instituto de Educación Superior Trassierra",
+        "Terminé mi bachillerato en el Instituto de Educación Superior Trassierra",
     },
     {
       year: "2022",
