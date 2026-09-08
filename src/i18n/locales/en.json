@@ -1,0 +1,143 @@
+{
+  "boot": {
+    "system": "YAGO-OS v1.0",
+    "booting": "BOOTING SYSTEM...",
+    "loadingAssets": "LOADING",
+    "ready": "READY",
+    "pressStart": "PRESS START",
+    "insertCoin": "INSERT CARTRIDGE",
+    "tip": "Press any key or click to begin"
+  },
+  "nav": {
+    "menu": "MENU",
+    "hero": "HOME",
+    "about": "ABOUT",
+    "skills": "SKILLS",
+    "experience": "EXPERIENCE",
+    "projects": "PROJECTS",
+    "contact": "CONTACT",
+    "language": "LANGUAGE"
+  },
+  "hero": {
+    "role": "FULLSTACK DEVELOPER",
+    "tagline": "I turn coffee and pixels into software that works.",
+    "specsTitle": "SPECS",
+    "cta": "VIEW PROFILE",
+    "scroll": "SCROLL DOWN",
+    "stats": {
+      "frontend": "FRONTEND",
+      "backend": "BACKEND",
+      "mobile": "MOBILE",
+      "problemSolving": "LOGIC"
+    }
+  },
+  "about": {
+    "title": "ABOUT ME",
+    "subtitle": "PROFILE",
+    "bio1": "I'm Yago, a Fullstack developer based in Spain. I trained in the Higher Vocational Degree in Multiplatform Application Development (DAM) and I've been building software from end to end ever since.",
+    "bio2": "I currently work at Nter Solutions, where I started on a training contract and moved to a permanent position. I'm comfortable on both frontend and backend, and I enjoy solving problems and keeping code clean and maintainable.",
+    "bio3": "When I'm not coding, I keep learning new technologies and improving the way I work.",
+    "cards": {
+      "role": "ROLE",
+      "roleValue": "Fullstack Dev",
+      "location": "LOCATION",
+      "locationValue": "Spain",
+      "status": "STATUS",
+      "statusValue": "Available",
+      "focus": "FOCUS",
+      "focusValue": "Web & Mobile"
+    }
+  },
+  "skills": {
+    "title": "SKILLS",
+    "subtitle": "TECHNOLOGIES",
+    "categories": {
+      "languages": "LANGUAGES",
+      "frontend": "FRONTEND",
+      "backend": "BACKEND",
+      "tools": "TOOLS"
+    },
+    "names": {
+      "javascript": "JavaScript",
+      "typescript": "TypeScript",
+      "java": "Java",
+      "csharp": "C#",
+      "python": "Python",
+      "php": "PHP",
+      "sql": "SQL",
+      "react": "React",
+      "spfx": "SPFx",
+      "html": "HTML5",
+      "css": "CSS3",
+      "tailwind": "Tailwind",
+      "spring": "Spring",
+      "dotnet": ".NET",
+      "node": "Node.js",
+      "git": "Git",
+      "docker": "Docker",
+      "databricks": "Databricks",
+      "azure": "Azure"
+    }
+  },
+  "experience": {
+    "title": "EXPERIENCE",
+    "subtitle": "CAREER PATH",
+    "currentBadge": "CURRENT",
+    "completedBadge": "PAST",
+    "techLabel": "STACK",
+    "nter": {
+      "title": "Fullstack Developer",
+      "org": "Nter Solutions",
+      "desc": "Currently working at Nter Solutions for 9 months. I've participated in projects with a wide variety of languages both in web development with technologies like React, SPFx and Python Dash, as well as applying parallel solutions focused on backend with technologies like Spring and other areas like systems administration with Azure and data and pipelines with Databricks."
+    },
+    "uco": {
+      "title": "Internship — IT Department",
+      "org": "University of Córdoba (UCO)",
+      "desc": "3-month internship (FCT) in the IT department of UCO. First contact with the professional environment, renewing the complete Docentia Application in which I participated fully developing both backend and frontend functions."
+    }
+  },
+  "education": {
+    "title": "EDUCATION",
+    "subtitle": "STUDIES",
+    "dam": {
+      "title": "Higher Degree — DAM",
+      "org": "Multiplatform Application Development",
+      "desc": "Higher Vocational Training program. A solid foundation in programming, databases, web development and cross-platform mobile apps."
+    }
+  },
+  "projects": {
+    "title": "PROJECTS",
+    "subtitle": "WORK",
+    "featured": "FEATURED",
+    "demo": "DEMO",
+    "repo": "CODE",
+    "placeholder": "More projects coming soon...",
+    "project1": {
+      "title": "8-bit Portfolio",
+      "desc": "This very portfolio: a retro experience built with React, Vite and GSAP. Parallax, smooth animations and a modular architecture."
+    },
+    "calculator": {
+      "title": "Calculator App",
+      "desc": "A simple calculator app for Android, built with Java for Android and XML. It features basic operations, a clean interface and responsive design."
+    }
+  },
+  "contact": {
+    "title": "CONTACT",
+    "subtitle": "LET'S TALK",
+    "text": "Got a project in mind? Drop me a line and let's chat.",
+    "email": "EMAIL",
+    "linkedin": "LINKEDIN",
+    "github": "GITHUB",
+    "cta": "SEND EMAIL",
+    "copied": "COPIED!"
+  },
+  "footer": {
+    "madeWith": "Made with React + GSAP",
+    "rights": "Press RESET to start over"
+  },
+  "ui": {
+    "loading": "LOADING...",
+    "backToTop": "BACK TO TOP",
+    "toggleLang": "Toggle language"
+  }
+}

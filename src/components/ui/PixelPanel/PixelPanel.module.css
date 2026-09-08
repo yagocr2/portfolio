@@ -1,0 +1,59 @@
+.panel {
+  --accent: var(--c-cyan);
+  position: relative;
+  background: var(--c-surface);
+  border: var(--pixel) solid var(--accent);
+  box-shadow: var(--shadow-hard);
+  image-rendering: pixelated;
+}
+
+.glow {
+  box-shadow:
+    var(--shadow-hard),
+    0 0 16px -2px var(--accent);
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--accent);
+  color: var(--c-bg-deep);
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dots {
+  letter-spacing: -2px;
+  opacity: 0.7;
+}
+
+.title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.body {
+  padding: var(--sp-4);
+}
+
+/* ---- Acentos ---- */
+.pink {
+  --accent: var(--c-pink);
+}
+.cyan {
+  --accent: var(--c-cyan);
+}
+.green {
+  --accent: var(--c-green);
+}
+.yellow {
+  --accent: var(--c-yellow);
+}
+.purple {
+  --accent: var(--c-purple);
+}

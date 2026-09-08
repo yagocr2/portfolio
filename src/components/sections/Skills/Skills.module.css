@@ -1,0 +1,21 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+.panel {
+  height: 100%;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

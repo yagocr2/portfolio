@@ -1,0 +1,143 @@
+{
+  "boot": {
+    "system": "YAGO-OS v1.0",
+    "booting": "INICIANDO SISTEMA...",
+    "loadingAssets": "CARGANDO",
+    "ready": "LISTO",
+    "pressStart": "PULSA START",
+    "insertCoin": "INSERTA CARTUCHO",
+    "tip": "Pulsa cualquier tecla o haz clic para empezar"
+  },
+  "nav": {
+    "menu": "MENÚ",
+    "hero": "INICIO",
+    "about": "SOBRE MÍ",
+    "skills": "SKILLS",
+    "experience": "EXPERIENCIA",
+    "projects": "PROYECTOS",
+    "contact": "CONTACTO",
+    "language": "IDIOMA"
+  },
+  "hero": {
+    "role": "DESARROLLADOR FULLSTACK",
+    "tagline": "Convierto café y píxeles en software que funciona.",
+    "specsTitle": "SPECS",
+    "cta": "VER PERFIL",
+    "scroll": "DESPLÁZATE",
+    "stats": {
+      "frontend": "FRONTEND",
+      "backend": "BACKEND",
+      "mobile": "MÓVIL",
+      "problemSolving": "LÓGICA"
+    }
+  },
+  "about": {
+    "title": "SOBRE MÍ",
+    "subtitle": "PERFIL",
+    "bio1": "Soy Yago, desarrollador Fullstack con base en España. Me formé en el ciclo de Grado Superior de Desarrollo de Aplicaciones Multiplataforma (DAM) y desde entonces construyo software de principio a fin.",
+    "bio2": "Actualmente trabajo en Nter Solutions, donde empecé con un contrato de formación y pasé a indefinido. Me muevo cómodo tanto en frontend como en backend, y disfruto resolviendo problemas y dejando el código limpio y mantenible.",
+    "bio3": "Cuando no estoy programando, sigo aprendiendo nuevas tecnologías y mejorando mi forma de trabajar.",
+    "cards": {
+      "role": "ROL",
+      "roleValue": "Fullstack Dev",
+      "location": "UBICACIÓN",
+      "locationValue": "España",
+      "status": "ESTADO",
+      "statusValue": "Disponible",
+      "focus": "ENFOQUE",
+      "focusValue": "Web & Móvil"
+    }
+  },
+  "skills": {
+    "title": "SKILLS",
+    "subtitle": "TECNOLOGÍAS",
+    "categories": {
+      "languages": "LENGUAJES",
+      "frontend": "FRONTEND",
+      "backend": "BACKEND",
+      "tools": "HERRAMIENTAS"
+    },
+    "names": {
+      "javascript": "JavaScript",
+      "typescript": "TypeScript",
+      "java": "Java",
+      "csharp": "C#",
+      "python": "Python",
+      "php": "PHP",
+      "sql": "SQL",
+      "react": "React",
+      "spfx": "SPFx",
+      "html": "HTML5",
+      "css": "CSS3",
+      "tailwind": "Tailwind",
+      "spring": "Spring",
+      "dotnet": ".NET",
+      "node": "Node.js",
+      "git": "Git",
+      "docker": "Docker",
+      "databricks": "Databricks",
+      "azure": "Azure"
+    }
+  },
+  "experience": {
+    "title": "EXPERIENCIA",
+    "subtitle": "TRAYECTORIA",
+    "currentBadge": "ACTUAL",
+    "completedBadge": "FINALIZADO",
+    "techLabel": "STACK",
+    "nter": {
+      "title": "Desarrollador Fullstack",
+      "org": "Nter Solutions",
+      "desc": "Actualmente trabajando en Nter Solutions desde hace 9 meses. Donde he participado en proyectos con una gran variedad de lenguajes tanto en el desarrollo web con tecnologías como React, SPFx y Python Dash, ademas de aplicar soluciones paralelas enfocadas al backend con tecnologías como Spring y otras areas como la administración de sistemas con Azure y de datos y pipelines con Databricks."
+    },
+    "uco": {
+      "title": "Prácticas — Dpto. Informática",
+      "org": "Universidad de Córdoba (UCO)",
+      "desc": "Prácticas de 3 meses (FCT) en el departamento de informática de la UCO. Primer contacto con el entorno profesional, realizando la renovacion completa de la Aplicación Docentia en la cual participé integramente desarrollando tanto las funciones de backend y frontend."
+    }
+  },
+  "education": {
+    "title": "FORMACIÓN",
+    "subtitle": "ESTUDIOS",
+    "dam": {
+      "title": "Grado Superior DAM",
+      "org": "IES Trassierra",
+      "desc": "Ciclo Formativo de Grado Superior . Base sólida en programación, bases de datos, desarrollo web y aplicaciones móviles multiplataforma."
+    }
+  },
+  "projects": {
+    "title": "PROYECTOS",
+    "subtitle": "TRABAJOS",
+    "featured": "DESTACADO",
+    "demo": "DEMO",
+    "repo": "CÓDIGO",
+    "placeholder": "Más proyectos próximamente...",
+    "project1": {
+      "title": "Portfolio 8-bits",
+      "desc": "Este mismo portfolio: una experiencia retro construida con React, Vite y GSAP. Parallax, animaciones fluidas y arquitectura modular."
+    },
+    "calculator": {
+      "title": "Calculator App",
+      "desc": "Una sencilla calculadora para Android, construida con Java para Android y XML. Cuenta con operaciones básicas, interfaz limpia y diseño responsivo."
+    }
+  },
+  "contact": {
+    "title": "CONTACTO",
+    "subtitle": "HABLEMOS",
+    "text": "¿Tienes un proyecto en mente? Escríbeme y lo comentamos.",
+    "email": "EMAIL",
+    "linkedin": "LINKEDIN",
+    "github": "GITHUB",
+    "cta": "ENVIAR EMAIL",
+    "copied": "¡COPIADO!"
+  },
+  "footer": {
+    "madeWith": "Hecho con React + GSAP",
+    "rights": "Pulsa RESET para volver a empezar"
+  },
+  "ui": {
+    "loading": "CARGANDO...",
+    "backToTop": "VOLVER ARRIBA",
+    "toggleLang": "Cambiar idioma"
+  }
+}
