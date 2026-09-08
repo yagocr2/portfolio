@@ -1,6 +1,7 @@
 .crt {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* El <svg> del filtro de aberración cromática no debe ocupar espacio ni verse */
