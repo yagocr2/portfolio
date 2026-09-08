@@ -73,16 +73,16 @@ export function Hero({ active }) {
           <p className={styles.greeting} data-hero>
             ▸ {profile.handle}.exe
           </p>
-          <h1 className={styles.role} data-hero>
-            {t('hero.role')}
-          </h1>
-          <p className={styles.tagline} data-hero>
-            {active ? (
-              <Typewriter text={t('hero.tagline')} startDelay={700} speed={35} />
-            ) : (
-              t('hero.tagline')
-            )}
-          </p>
+          <div className={styles.introPanel} data-hero>
+            <h1 className={styles.role}>{t('hero.role')}</h1>
+            <p className={styles.tagline}>
+              {active ? (
+                <Typewriter text={t('hero.tagline')} startDelay={700} speed={35} />
+              ) : (
+                t('hero.tagline')
+              )}
+            </p>
+          </div>
 
           <div className={styles.specs} data-hero>
             <p className={styles.specsTitle}>{t('hero.specsTitle')}</p>
