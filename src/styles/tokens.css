@@ -1,0 +1,77 @@
+/**
+ * Design tokens — la única fuente de verdad para color, tipografía y espaciado.
+ * Estética retro 8-bits / synthwave. Cambia aquí y se propaga a todo el portfolio.
+ */
+:root {
+  /* ---- Paleta base (fondo oscuro tipo CRT nocturno) ---- */
+  --c-bg: #0d0221;
+  --c-bg-deep: #060111;
+  --c-surface: #1a0938;
+  --c-surface-2: #241248;
+  --c-border: #3d2a6b;
+
+  /* ---- Neones (acentos) ---- */
+  --c-pink: #ff2e88;
+  --c-cyan: #00f0ff;
+  --c-green: #39ff14;
+  --c-yellow: #ffe600;
+  --c-purple: #b14aed;
+  --c-orange: #ff8a00;
+  --c-blue: #4d9fff;
+
+  /* ---- Texto ---- */
+  --c-text: #f4f4ff;
+  --c-text-dim: #a99fd4;
+  --c-text-shadow: #000000;
+
+  /* ---- Semánticos ---- */
+  --c-hp: #ff2e88;
+  --c-mp: #00f0ff;
+  --c-xp: #39ff14;
+
+  /* ---- Tipografía ---- */
+  --font-display: 'Press Start 2P', system-ui, monospace;
+  --font-body: 'VT323', 'Courier New', monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 1rem;
+  --fs-md: 1.25rem;
+  --fs-lg: 1.6rem;
+  --fs-xl: 2.25rem;
+
+  /* Tamaños para la fuente display (Press Start 2P es muy grande de base) */
+  --fs-display-sm: 0.7rem;
+  --fs-display-md: 1rem;
+  --fs-display-lg: 1.6rem;
+  --fs-display-xl: 2.4rem;
+
+  /* ---- Espaciado (rejilla de 8px, muy "pixel") ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 16px;
+  --sp-4: 24px;
+  --sp-5: 32px;
+  --sp-6: 48px;
+  --sp-7: 64px;
+  --sp-8: 96px;
+
+  /* ---- Bordes pixelados / sombras duras ---- */
+  --pixel: 4px;
+  --shadow-hard: 6px 6px 0 0 rgba(0, 0, 0, 0.6);
+  --shadow-glow-pink: 0 0 12px var(--c-pink);
+  --shadow-glow-cyan: 0 0 12px var(--c-cyan);
+
+  /* ---- Capas (z-index) ---- */
+  --z-bg: 0;
+  --z-content: 10;
+  --z-nav: 100;
+  --z-overlay: 1000;
+
+  /* ---- Tiempos de animación ---- */
+  --t-fast: 0.15s;
+  --t-base: 0.3s;
+  --t-slow: 0.6s;
+
+  /* ---- Anchos de layout ---- */
+  --max-w: 1100px;
+}

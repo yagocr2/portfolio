@@ -1,0 +1,111 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bg);
+  overflow: hidden;
+  background: linear-gradient(180deg, #0d0221 0%, #1a0938 55%, #2b0a4d 100%);
+  pointer-events: none;
+}
+
+.layer {
+  position: absolute;
+  inset: -20% 0;
+  width: 100%;
+}
+
+/* ---- Estrellas (dos capas con tamaños/densidades distintas) ---- */
+.starsFar {
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 70% 60%, #fff, transparent),
+    radial-gradient(1px 1px at 40% 80%, #9af, transparent),
+    radial-gradient(1px 1px at 90% 20%, #fff, transparent),
+    radial-gradient(1px 1px at 55% 15%, #fdf, transparent);
+  background-size: 100% 100%;
+  opacity: 0.6;
+}
+
+.starsNear {
+  background-image:
+    radial-gradient(2px 2px at 15% 50%, #fff, transparent),
+    radial-gradient(2px 2px at 80% 35%, #0ff, transparent),
+    radial-gradient(2px 2px at 60% 75%, #fff, transparent),
+    radial-gradient(2px 2px at 35% 25%, #f0f, transparent),
+    radial-gradient(2px 2px at 88% 85%, #fff, transparent);
+  background-size: 100% 100%;
+  animation: twinkle 3s steps(2) infinite alternate;
+}
+
+/* ---- Sol retro con bandas ---- */
+.sun {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: linear-gradient(
+    180deg,
+    #ffe600 0%,
+    #ff8a00 45%,
+    #ff2e88 100%
+  );
+  box-shadow: 0 0 80px -10px #ff2e88;
+  /* Bandas horizontales tipo synthwave en la mitad inferior */
+  -webkit-mask-image: repeating-linear-gradient(
+    180deg,
+    #000 0 14px,
+    transparent 14px 20px
+  );
+  mask-image: repeating-linear-gradient(180deg, #000 0 14px, transparent 14px 20px);
+  -webkit-mask-position: 0 60%;
+  mask-position: 0 60%;
+}
+
+/* ---- Montañas (silueta con gradientes triangulares) ---- */
+.mountains {
+  position: absolute;
+  bottom: 22%;
+  left: 0;
+  width: 100%;
+  height: 220px;
+  background:
+    linear-gradient(135deg, transparent 49%, #160a30 50%) 0 0 / 240px 220px,
+    linear-gradient(225deg, transparent 49%, #160a30 50%) 120px 0 / 240px 220px;
+  background-repeat: repeat-x;
+  opacity: 0.9;
+}
+
+/* ---- Rejilla de suelo synthwave ---- */
+.grid {
+  position: absolute;
+  bottom: -10%;
+  left: -50%;
+  width: 200%;
+  height: 50%;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.5) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.5) 2px, transparent 2px);
+  background-size: 48px 48px;
+  transform: perspective(320px) rotateX(70deg);
+  transform-origin: bottom center;
+  opacity: 0.5;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 60%);
+}
+
+@keyframes twinkle {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starsNear {
+    animation: none;
+  }
+}

@@ -1,0 +1,27 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-md);
+  color: var(--badge-color);
+  background: var(--c-bg-deep);
+  border: 2px solid var(--badge-color);
+  padding: var(--sp-1) var(--sp-3);
+  transition:
+    background var(--t-fast),
+    color var(--t-fast),
+    transform var(--t-fast);
+}
+
+.badge:hover {
+  background: var(--badge-color);
+  color: var(--c-bg-deep);
+  transform: translateY(-2px);
+}
+
+.icon {
+  width: 1.15em;
+  height: 1.15em;
+  flex-shrink: 0;
+}

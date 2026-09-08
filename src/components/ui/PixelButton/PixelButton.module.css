@@ -1,0 +1,60 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  color: var(--c-bg-deep);
+  background: var(--accent, var(--c-pink));
+  border: var(--pixel) solid var(--c-bg-deep);
+  box-shadow: 4px 4px 0 0 rgba(0, 0, 0, 0.55);
+  text-decoration: none;
+  user-select: none;
+  transition:
+    transform var(--t-fast),
+    box-shadow var(--t-fast),
+    filter var(--t-fast);
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+  transform: translate(-1px, -1px);
+  box-shadow: 6px 6px 0 0 rgba(0, 0, 0, 0.55);
+  color: var(--c-bg-deep);
+}
+
+/* Efecto "pulsado": el botón se hunde sobre su sombra */
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.55);
+}
+
+.btn:focus-visible {
+  outline: 3px dashed var(--c-text);
+  outline-offset: 4px;
+}
+
+/* ---- Tamaños ---- */
+.md {
+  font-size: var(--fs-display-sm);
+  padding: var(--sp-3) var(--sp-4);
+}
+.sm {
+  font-size: 0.55rem;
+  padding: var(--sp-2) var(--sp-3);
+}
+
+/* ---- Variantes de color ---- */
+.pink {
+  --accent: var(--c-pink);
+}
+.cyan {
+  --accent: var(--c-cyan);
+}
+.green {
+  --accent: var(--c-green);
+}
+.yellow {
+  --accent: var(--c-yellow);
+}
