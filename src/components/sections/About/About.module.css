@@ -1,0 +1,69 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+.bioPanel {
+  height: 100%;
+}
+
+.bio {
+  font-size: var(--fs-md);
+  line-height: 1.6;
+  color: var(--c-text);
+  margin-bottom: var(--sp-3);
+}
+
+.bio:last-child {
+  margin-bottom: 0;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  background: var(--c-surface);
+  border: 3px solid var(--c-border);
+  box-shadow: var(--shadow-hard);
+  transition:
+    transform var(--t-fast),
+    border-color var(--t-fast);
+}
+
+.card:hover {
+  transform: translate(-2px, -2px);
+  border-color: var(--c-cyan);
+}
+
+.cardLabel {
+  font-family: var(--font-display);
+  font-size: 0.45rem;
+  color: var(--c-cyan);
+  letter-spacing: 1px;
+}
+
+.cardValue {
+  font-size: var(--fs-md);
+  color: var(--c-text);
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

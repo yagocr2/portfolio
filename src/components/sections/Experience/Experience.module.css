@@ -1,0 +1,119 @@
+.timeline {
+  position: relative;
+  margin-left: var(--sp-3);
+  padding-left: var(--sp-5);
+  border-left: 4px solid var(--c-border);
+}
+
+.entry {
+  position: relative;
+  margin-bottom: var(--sp-5);
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+/* Nodo sobre la línea */
+.node {
+  position: absolute;
+  left: calc(-1 * var(--sp-5) - 12px);
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  background: var(--c-bg-deep);
+  border: 4px solid var(--c-yellow);
+}
+
+.current .node {
+  background: var(--c-green);
+  border-color: var(--c-green);
+  box-shadow: 0 0 10px var(--c-green);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.card {
+  background: var(--c-surface);
+  border: 3px solid var(--c-border);
+  box-shadow: var(--shadow-hard);
+  padding: var(--sp-4);
+  transition:
+    transform var(--t-fast),
+    border-color var(--t-fast);
+}
+
+.card:hover {
+  transform: translateX(4px);
+  border-color: var(--c-yellow);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--sp-2);
+}
+
+.period {
+  font-family: var(--font-display);
+  font-size: 0.5rem;
+  color: var(--c-text-dim);
+}
+
+.badge {
+  font-family: var(--font-display);
+  font-size: 0.45rem;
+  color: var(--c-bg-deep);
+  background: var(--c-green);
+  padding: 3px 6px;
+}
+
+.role {
+  font-size: 0.85rem;
+  color: var(--c-text);
+  text-shadow: 2px 2px 0 #000;
+  margin-bottom: var(--sp-1);
+}
+
+.org {
+  font-size: var(--fs-md);
+  color: var(--c-cyan);
+  margin-bottom: var(--sp-3);
+}
+
+.desc {
+  font-size: var(--fs-md);
+  line-height: 1.55;
+  color: var(--c-text);
+  margin-bottom: var(--sp-3);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.eduTitle {
+  font-size: var(--fs-display-sm);
+  color: var(--c-purple);
+  margin: var(--sp-6) 0 var(--sp-4);
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .current .node {
+    animation: none;
+  }
+}
