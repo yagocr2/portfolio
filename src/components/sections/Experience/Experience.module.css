@@ -96,15 +96,6 @@
   gap: var(--sp-2);
 }
 
-.tag {
-  font-family: var(--font-body);
-  font-size: var(--fs-sm);
-  color: var(--c-yellow);
-  background: var(--c-bg-deep);
-  border: 2px solid var(--c-border);
-  padding: 2px var(--sp-2);
-}
-
 .eduTitle {
   font-size: var(--fs-display-sm);
   color: var(--c-purple);

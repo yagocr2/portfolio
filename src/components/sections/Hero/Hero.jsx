@@ -2,8 +2,8 @@ import { useRef } from 'react';
 import { gsap, useGSAP } from '../../../lib/gsap.js';
 import { useTranslation } from '../../../i18n/useTranslation.js';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion.js';
-import { profile, stats } from '../../../data/profile.js';
-import { StatBar } from '../../ui/StatBar/StatBar.jsx';
+import { profile, heroStack } from '../../../data/profile.js';
+import { TechBadge } from '../../ui/TechBadge/TechBadge.jsx';
 import { PixelButton } from '../../ui/PixelButton/PixelButton.jsx';
 import { Typewriter } from '../../ui/Typewriter/Typewriter.jsx';
 import styles from './Hero.module.css';
@@ -86,16 +86,11 @@ export function Hero({ active }) {
 
           <div className={styles.specs} data-hero>
             <p className={styles.specsTitle}>{t('hero.specsTitle')}</p>
-            <div className={styles.specsGrid}>
-              {stats.map((s) => (
-                <StatBar
-                  key={s.id}
-                  label={t(`hero.stats.${s.id}`)}
-                  value={s.value}
-                  color={s.color}
-                />
+            <ul className={styles.stackList}>
+              {heroStack.map((id) => (
+                <TechBadge key={id} id={id} />
               ))}
-            </div>
+            </ul>
           </div>
 
           <div className={styles.actions} data-hero>

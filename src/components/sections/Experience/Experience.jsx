@@ -1,6 +1,7 @@
 import { useTranslation } from '../../../i18n/useTranslation.js';
 import { experience, education } from '../../../data/profile.js';
 import { Section } from '../../layout/Section/Section.jsx';
+import { TechBadge } from '../../ui/TechBadge/TechBadge.jsx';
 import styles from './Experience.module.css';
 
 /** Formatea el periodo "2024 — Actual" / "2022 — 2024". */
@@ -28,10 +29,8 @@ function TimelineEntry({ ns, entry, t }) {
         <p className={styles.desc}>{desc}</p>
         {entry.tech?.length > 0 && (
           <ul className={styles.tags}>
-            {entry.tech.map((tech) => (
-              <li key={tech} className={styles.tag}>
-                {tech}
-              </li>
+            {entry.tech.map((techId) => (
+              <TechBadge key={techId} id={techId} />
             ))}
           </ul>
         )}

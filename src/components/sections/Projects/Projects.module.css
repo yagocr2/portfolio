@@ -43,14 +43,6 @@
   margin-bottom: var(--sp-4);
 }
 
-.tag {
-  font-size: var(--fs-sm);
-  color: var(--c-cyan);
-  background: var(--c-bg-deep);
-  border: 2px solid var(--c-border);
-  padding: 2px var(--sp-2);
-}
-
 .links {
   display: flex;
   gap: var(--sp-3);

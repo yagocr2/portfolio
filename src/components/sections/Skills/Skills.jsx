@@ -3,7 +3,7 @@ import { useTranslation } from '../../../i18n/useTranslation.js';
 import { skills, SKILL_CATEGORIES } from '../../../data/profile.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelPanel } from '../../ui/PixelPanel/PixelPanel.jsx';
-import { StatBar } from '../../ui/StatBar/StatBar.jsx';
+import { TechBadge } from '../../ui/TechBadge/TechBadge.jsx';
 import styles from './Skills.module.css';
 
 const ACCENTS = {
@@ -14,7 +14,7 @@ const ACCENTS = {
 };
 
 /**
- * Sección de habilidades: una ventana por categoría con barras de progreso.
+ * Sección de habilidades: una ventana por categoría con badges de tecnología.
  */
 export function Skills() {
   const { t } = useTranslation();
@@ -38,16 +38,11 @@ export function Skills() {
             className={styles.panel}
             data-reveal
           >
-            <div className={styles.bars}>
+            <ul className={styles.badges}>
               {items.map((s) => (
-                <StatBar
-                  key={s.id}
-                  label={t(`skills.names.${s.id}`)}
-                  value={s.level}
-                  color={s.color}
-                />
+                <TechBadge key={s.id} id={s.id} />
               ))}
-            </div>
+            </ul>
           </PixelPanel>
         ))}
       </div>

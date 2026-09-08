@@ -2,6 +2,7 @@ import { useTranslation } from '../../../i18n/useTranslation.js';
 import { projects } from '../../../data/profile.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelPanel } from '../../ui/PixelPanel/PixelPanel.jsx';
+import { TechBadge } from '../../ui/TechBadge/TechBadge.jsx';
 import styles from './Projects.module.css';
 
 /** Tarjeta de un proyecto. */
@@ -21,10 +22,8 @@ function ProjectCard({ project, t }) {
       <p className={styles.desc}>{t(`projects.${id}.desc`)}</p>
 
       <ul className={styles.tags}>
-        {tech.map((techName) => (
-          <li key={techName} className={styles.tag}>
-            {techName}
-          </li>
+        {tech.map((techId) => (
+          <TechBadge key={techId} id={techId} />
         ))}
       </ul>
 

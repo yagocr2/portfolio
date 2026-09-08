@@ -21,15 +21,9 @@
   "hero": {
     "role": "DESARROLLADOR FULLSTACK",
     "tagline": "Convierto café y píxeles en software que funciona.",
-    "specsTitle": "SPECS",
+    "specsTitle": "STACK",
     "cta": "VER PERFIL",
-    "scroll": "DESPLÁZATE",
-    "stats": {
-      "frontend": "FRONTEND",
-      "backend": "BACKEND",
-      "mobile": "MÓVIL",
-      "problemSolving": "LÓGICA"
-    }
+    "scroll": "DESPLÁZATE"
   },
   "about": {
     "title": "SOBRE MÍ",
@@ -76,7 +70,13 @@
       "git": "Git",
       "docker": "Docker",
       "databricks": "Databricks",
-      "azure": "Azure"
+      "azure": "Azure",
+      "kotlin": "Kotlin",
+      "xml": "XML",
+      "linux": "Linux",
+      "android": "Android",
+      "vite": "Vite",
+      "gsap": "GSAP"
     }
   },
   "experience": {

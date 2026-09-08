@@ -120,10 +120,10 @@
   letter-spacing: 2px;
 }
 
-.specsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--sp-3) var(--sp-4);
+.stackList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
 }
 
 .actions {
@@ -176,8 +176,8 @@
     max-width: 260px;
     margin: 0 auto;
   }
-  .specsGrid {
-    grid-template-columns: 1fr;
+  .stackList {
+    justify-content: center;
   }
   .actions {
     justify-content: center;

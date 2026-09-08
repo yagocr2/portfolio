@@ -21,15 +21,9 @@
   "hero": {
     "role": "FULLSTACK DEVELOPER",
     "tagline": "I turn coffee and pixels into software that works.",
-    "specsTitle": "SPECS",
+    "specsTitle": "STACK",
     "cta": "VIEW PROFILE",
-    "scroll": "SCROLL DOWN",
-    "stats": {
-      "frontend": "FRONTEND",
-      "backend": "BACKEND",
-      "mobile": "MOBILE",
-      "problemSolving": "LOGIC"
-    }
+    "scroll": "SCROLL DOWN"
   },
   "about": {
     "title": "ABOUT ME",
@@ -76,7 +70,13 @@
       "git": "Git",
       "docker": "Docker",
       "databricks": "Databricks",
-      "azure": "Azure"
+      "azure": "Azure",
+      "kotlin": "Kotlin",
+      "xml": "XML",
+      "linux": "Linux",
+      "android": "Android",
+      "vite": "Vite",
+      "gsap": "GSAP"
     }
   },
   "experience": {

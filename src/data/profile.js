@@ -3,7 +3,7 @@ import avatar from '../assets/avatar.jpg';
  * ============================================================
  *  DATOS DEL PORTFOLIO  (capa de datos — única fuente de verdad)
  * ============================================================
- *  Aquí vive lo NO traducible: porcentajes, fechas, tecnologías y enlaces.
+ *  Aquí vive lo NO traducible: fechas, tecnologías y enlaces.
  *  Los textos traducibles (títulos, descripciones) están en
  *  src/i18n/locales/{es,en}.json bajo la misma `id`.
  *
@@ -25,47 +25,76 @@ export const profile = {
 };
 
 /**
- * SPECS del Hero (barras tipo medidor que aparecen junto a la foto).
- * value: 0-100. color: clave de color de tokens.css (sin var()).
+ * Registro de tecnologías: color de acento por id (badges, en toda la web).
+ * El nombre visible vive en i18n (skills.names.<id>) y el icono en
+ * components/ui/TechBadge/techIcons.js.
  */
-export const stats = [
-  { id: 'frontend', value: 80, color: 'pink' },
-  { id: 'backend', value: 90, color: 'cyan' },
-  { id: 'mobile', value: 70, color: 'green' },
-  { id: 'problemSolving', value: 90, color: 'yellow' },
-];
+export const TECH_COLORS = {
+  // lenguajes
+  java: 'orange',
+  csharp: 'purple',
+  sql: 'pink',
+  javascript: 'yellow',
+  typescript: 'cyan',
+  python: 'blue',
+  php: 'purple',
+  kotlin: 'orange',
+  xml: 'green',
+  // frontend
+  react: 'cyan',
+  spfx: 'pink',
+  html: 'orange',
+  css: 'cyan',
+  tailwind: 'pink',
+  vite: 'yellow',
+  gsap: 'green',
+  // backend
+  spring: 'green',
+  node: 'green',
+  dotnet: 'purple',
+  // herramientas / plataformas
+  git: 'orange',
+  docker: 'cyan',
+  azure: 'blue',
+  databricks: 'green',
+  linux: 'yellow',
+  android: 'green',
+};
 
 /**
- * SKILLS (sección Skills — barras de progreso). Agrupadas por categoría.
+ * SKILLS (sección Skills — badges de tecnología). Agrupadas por categoría.
  */
 export const skills = [
   // --- Lenguajes ---
-  { id: 'java', category: 'languages', level: 90, color: 'orange' },
-  { id: 'csharp', category: 'languages', level: 85, color: 'purple' },
-  { id: 'sql', category: 'languages', level: 78, color: 'pink' },
-  { id: 'javascript', category: 'languages', level: 82, color: 'yellow' },
-  { id: 'typescript', category: 'languages', level: 80, color: 'cyan' },
-  { id: 'python', category: 'languages', level: 75, color: 'blue' },
+  { id: 'java', category: 'languages' },
+  { id: 'csharp', category: 'languages' },
+  { id: 'sql', category: 'languages' },
+  { id: 'javascript', category: 'languages' },
+  { id: 'typescript', category: 'languages' },
+  { id: 'python', category: 'languages' },
   // --- Frontend ---
-  { id: 'react', category: 'frontend', level: 85, color: 'cyan' },
-  { id: 'spfx', category: 'frontend', level: 70, color: 'pink' },
-  { id: 'html', category: 'frontend', level: 92, color: 'orange' },
-  { id: 'css', category: 'frontend', level: 85, color: 'cyan' },
-  { id: 'tailwind', category: 'frontend', level: 80, color: 'pink' },
+  { id: 'react', category: 'frontend' },
+  { id: 'spfx', category: 'frontend' },
+  { id: 'html', category: 'frontend' },
+  { id: 'css', category: 'frontend' },
+  { id: 'tailwind', category: 'frontend' },
 
   // --- Backend ---
-  { id: 'spring', category: 'backend', level: 78, color: 'green' },
-  { id: 'node', category: 'backend', level: 75, color: 'green' },
-  { id: 'dotnet', category: 'backend', level: 80, color: 'purple' },
+  { id: 'spring', category: 'backend' },
+  { id: 'node', category: 'backend' },
+  { id: 'dotnet', category: 'backend' },
 
   // --- Herramientas ---
-  { id: 'git', category: 'tools', level: 85, color: 'orange' },
-  { id: 'docker', category: 'tools', level: 65, color: 'cyan' },
-  { id: 'azure', category: 'tools', level: 60, color: 'blue' },
-  { id: 'databricks', category: 'tools', level: 76, color: 'green' },
+  { id: 'git', category: 'tools' },
+  { id: 'docker', category: 'tools' },
+  { id: 'azure', category: 'tools' },
+  { id: 'databricks', category: 'tools' },
 ];
 
 export const SKILL_CATEGORIES = ['languages', 'frontend', 'backend', 'tools'];
+
+/** Stack destacado que aparece en el Hero (ids de `skills`). */
+export const heroStack = ['react', 'java', 'spring', 'typescript', 'sql', 'azure'];
 
 /**
  * EXPERIENCIA. Orden cronológico inverso (lo más reciente arriba).
@@ -76,13 +105,13 @@ export const experience = [
     id: 'nter',
     current: true,
     period: { start: '2025', end: null }, // EDITABLE: fechas reales (null = actualidad)
-    tech: ['React', 'JavaScript', 'Java', 'Spring', 'SQL', 'Git'], // EDITABLE
+    tech: ['react', 'javascript', 'java', 'spring', 'sql', 'git'], // EDITABLE
   },
   {
     id: 'uco',
     current: false,
     period: { start: '2024', end: '2024' }, // EDITABLE: meses reales de las prácticas
-    tech: ['PHP', 'SQL', 'Linux', 'HTML', 'CSS'], // EDITABLE
+    tech: ['php', 'sql', 'linux', 'html', 'css'], // EDITABLE
   },
 ];
 
@@ -93,7 +122,7 @@ export const education = [
   {
     id: 'dam',
     period: { start: '2022', end: '2024' }, // EDITABLE
-    tech: ['Java', 'Kotlin', 'SQL', 'XML', 'Android'], // EDITABLE
+    tech: ['java', 'kotlin', 'sql', 'xml', 'android'], // EDITABLE
   },
 ];
 
@@ -104,13 +133,13 @@ export const education = [
 export const projects = [
   {
     id: 'project1',
-    tech: ['React', 'Vite', 'GSAP'],
+    tech: ['react', 'vite', 'gsap'],
     links: { demo: '#', repo: '#' },
     featured: true,
   },
   {
     id: 'calculator',
-    tech: ['Java', 'Android', 'XML'],
+    tech: ['java', 'android', 'xml'],
     links: { demo: '#', repo: 'https://github.com/yagocr2/Calculadora' },
     featured: false,
   }
