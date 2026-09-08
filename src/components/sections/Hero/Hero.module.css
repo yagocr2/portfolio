@@ -2,6 +2,7 @@
   position: relative;
   z-index: var(--z-content);
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,6 +192,12 @@
   }
   .greeting {
     text-align: center;
+  }
+  /* En móvil el contenido apilado suele superar el alto del viewport, así
+     que este indicador absoluto acaba solapado con el botón CONTACTO. Se
+     oculta: es puramente decorativo, el usuario ya sabe hacer scroll. */
+  .scroll {
+    display: none;
   }
 }
 
