@@ -138,6 +138,7 @@
   "ui": {
     "loading": "LOADING...",
     "backToTop": "BACK TO TOP",
-    "toggleLang": "Toggle language"
+    "toggleLang": "Toggle language",
+    "crtToggle": "CRT filter"
   }
 }

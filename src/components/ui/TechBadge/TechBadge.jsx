@@ -4,10 +4,10 @@ import { TECH_ICONS } from './techIcons.js';
 import styles from './TechBadge.module.css';
 
 /**
- * Badge plano de tecnología: icono pixel-art + nombre, sin nivel ni jerarquía.
- * Resuelve nombre (i18n), color e icono a partir del `id` del registro de
- * tecnologías (`TECH_COLORS` en profile.js). Se usa como `<li>` dentro de
- * listas de tecnologías (Hero, Skills, Projects, Experience).
+ * Badge plano de tecnología: logo + nombre, sin nivel ni jerarquía. Resuelve
+ * nombre (i18n), color e icono a partir del `id` (registro `TECH_COLORS` en
+ * profile.js e iconos en `techIcons.js`). Se usa como `<li>` dentro de listas
+ * de tecnologías (Hero, Skills, Projects, Experience).
  *
  * @param {object} props
  * @param {string} props.id - id del registro de tecnologías.
@@ -27,7 +27,7 @@ export function TechBadge({ id, as: Tag = 'li', className = '' }) {
           className={styles.icon}
           viewBox={icon.viewBox}
           fill="currentColor"
-          shapeRendering="crispEdges"
+          shapeRendering={icon.pixel ? 'crispEdges' : undefined}
           aria-hidden="true"
         >
           <path d={icon.path} />
