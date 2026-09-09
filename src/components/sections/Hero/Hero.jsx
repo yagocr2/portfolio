@@ -77,9 +77,9 @@ export function Hero({ active }) {
             <h1 className={styles.role}>{t('hero.role')}</h1>
             <p className={styles.tagline}>
               {active ? (
-                <Typewriter text={t('hero.tagline')} startDelay={700} speed={35} />
+                <Typewriter text={t('hero.taglines')} startDelay={700} speed={35} />
               ) : (
-                t('hero.tagline')
+                t('hero.taglines')[0]
               )}
             </p>
           </div>

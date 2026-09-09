@@ -20,7 +20,13 @@
   },
   "hero": {
     "role": "DESARROLLADOR FULLSTACK",
-    "tagline": "Convierto café y píxeles en software que funciona.",
+    "taglines": [
+      "Desarrollo aplicaciones web de principio a fin.",
+      "Backend sólido, frontend cuidado.",
+      "Java, Spring, React y TypeScript.",
+      "Código limpio y mantenible.",
+      "De la base de datos a la interfaz."
+    ],
     "specsTitle": "STACK",
     "cta": "VER PERFIL",
     "scroll": "DESPLÁZATE"
