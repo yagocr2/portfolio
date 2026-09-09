@@ -1,4 +1,5 @@
 import { useTranslation } from '../../../i18n/useTranslation.js';
+import { useSound } from '../../../hooks/useSound.js';
 import { experience, education } from '../../../data/profile.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { TechBadge } from '../../ui/TechBadge/TechBadge.jsx';
@@ -12,6 +13,7 @@ function formatPeriod(period, t) {
 
 /** Una entrada de la línea temporal (trabajo o formación). */
 function TimelineEntry({ ns, entry, t }) {
+  const { play } = useSound();
   const title = t(`${ns}.${entry.id}.title`);
   const org = t(`${ns}.${entry.id}.org`);
   const desc = t(`${ns}.${entry.id}.desc`);
@@ -19,7 +21,7 @@ function TimelineEntry({ ns, entry, t }) {
   return (
     <li className={`${styles.entry} ${entry.current ? styles.current : ''}`} data-reveal>
       <span className={styles.node} aria-hidden="true" />
-      <div className={styles.card}>
+      <div className={styles.card} onMouseEnter={() => play('hoverCard')}>
         <div className={styles.cardHead}>
           <p className={styles.period}>{formatPeriod(entry.period, t)}</p>
           {entry.current && <span className={styles.badge}>{t('experience.currentBadge')}</span>}

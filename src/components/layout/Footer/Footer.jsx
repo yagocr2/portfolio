@@ -19,7 +19,12 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.inner}>
-        <button type="button" className={styles.reset} onClick={handleReset}>
+        <button
+          type="button"
+          className={styles.reset}
+          onClick={handleReset}
+          onMouseEnter={() => play('hoverButton')}
+        >
           ↑ {t('ui.backToTop')}
         </button>
         <p className={styles.credit}>
