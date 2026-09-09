@@ -3,27 +3,15 @@ import { useTranslation } from '../../../i18n/useTranslation.js';
 import { profile } from '../../../data/profile.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelButton } from '../../ui/PixelButton/PixelButton.jsx';
-import { PixelModal } from '../../ui/PixelModal/PixelModal.jsx';
-import { MailComposer } from './MailComposer.jsx';
 import styles from './Contact.module.css';
 
 /**
- * Sección de contacto: copia el email al portapapeles, enlaza a redes y
- * abre un modal de composición de correo (mailto: prellenado) al pulsar CTA.
+ * Sección de contacto: copia el email al portapapeles y enlaza a redes.
  */
 export function Contact() {
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [mailSent, setMailSent] = useState(false);
   const { email, linkedin, github } = profile.links;
-
-  const closeModal = () => setModalOpen(false);
-  const handleSent = () => {
-    setModalOpen(false);
-    setMailSent(true);
-    setTimeout(() => setMailSent(false), 3000);
-  };
 
   const copyEmail = async () => {
     try {
@@ -76,16 +64,11 @@ export function Contact() {
         </ul>
 
         <div className={styles.cta} data-reveal>
-          <PixelButton type="button" variant="green" onClick={() => setModalOpen(true)}>
+          <PixelButton variant="green" href={`mailto:${email}`}>
             {t('contact.cta')}
           </PixelButton>
-          {mailSent && <p className={styles.sentNotice}>{t('contact.mailOpened')}</p>}
         </div>
       </div>
-
-      <PixelModal open={modalOpen} onClose={closeModal} title={t('contact.modal.title')} accent="green">
-        <MailComposer onSent={handleSent} onCancel={closeModal} />
-      </PixelModal>
     </Section>
   );
 }
