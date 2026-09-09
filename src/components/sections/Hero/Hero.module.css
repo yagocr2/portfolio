@@ -238,6 +238,21 @@
   background: var(--c-surface);
 }
 
+/* Chapa de propiedades tipo XP: barra beige con nombre en negro + una
+   píldora azul de "selección" para el número, en vez del cian-sobre-cian
+   que salía de heredar los colores de retro tal cual. */
+:root[data-theme='xp'] .nameplate {
+  background: var(--xp-face-dark);
+  border-top: 1px solid var(--xp-3d-light);
+}
+:root[data-theme='xp'] .name {
+  color: var(--c-text);
+}
+:root[data-theme='xp'] .lvl {
+  color: #ffffff;
+  background: var(--xp-select);
+}
+
 /* El breakpoint de abajo (@media max-width:860px) mira el ancho del
    VIEWPORT, pero aquí el contenido vive dentro de una XPWindow bastante más
    estrecha que la pantalla — el grid de 2 columnas nunca colapsaba y el

@@ -87,7 +87,17 @@
 :root[data-theme='xp'] {
   /* ---- Superficies ---- */
   --c-bg: #3a6ea5;
-  --c-bg-deep: #3a6ea5;
+  /* En retro, --c-bg-deep es casi negro y sirve de "neutro de máximo
+     contraste" para el texto/chapa de una insignia apoyada sobre un acento
+     brillante (nav activo, badges "ACTUAL"/"DESTACADO", el nameplate del
+     Hero…). Como fondo de página no se usa en XP (el escritorio pinta su
+     propio wallpaper vía --xp-desktop-sky/--xp-desktop-hill), así que aquí
+     se reutiliza para el mismo papel funcional pero con el valor opuesto:
+     los acentos de XP son oscuros/saturados (cian #0058e6, verde #008000,
+     oliva #808000…), así que el neutro de contraste es blanco, no negro.
+     Sin este cambio, azul-sobre-azul volvía ilegible el nameplate y varios
+     badges. */
+  --c-bg-deep: #ffffff;
   --c-surface: #ece9d8;
   --c-surface-2: #ffffff;
   --c-border: #919b9c;
