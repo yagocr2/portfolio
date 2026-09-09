@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Yago Calero — Fullstack Dev [8-bit]",
+    "title": "Yago Calero — Fullstack Dev",
     "description": "Yago Calero's portfolio — Fullstack Developer. A retro 8-bit adventure."
   },
   "boot": {
@@ -48,7 +48,7 @@
       "location": "LOCATION",
       "locationValue": "Spain",
       "status": "STATUS",
-      "statusValue": "Available",
+      "statusValue": "Employed",
       "focus": "FOCUS",
       "focusValue": "Web & Mobile"
     }
