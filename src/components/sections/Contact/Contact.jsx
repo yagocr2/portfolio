@@ -5,6 +5,7 @@ import { profile } from '../../../data/profile.js';
 import { hasLink } from '../../../lib/links.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelButton } from '../../ui/PixelButton/PixelButton.jsx';
+import { SOCIAL_ICONS } from '../../ui/socialIcons.js';
 import styles from './Contact.module.css';
 
 /**
@@ -42,9 +43,17 @@ export function Contact() {
 
         <ul className={styles.channels}>
           {channels.map((c) => {
+            const icon = SOCIAL_ICONS[c.key];
             const Inner = (
               <>
-                <span className={styles.chLabel}>{c.label}</span>
+                <span className={styles.chMeta}>
+                  {icon && (
+                    <svg className={styles.chIcon} viewBox={icon.viewBox} fill="currentColor" aria-hidden="true">
+                      <path d={icon.path} />
+                    </svg>
+                  )}
+                  <span className={styles.chLabel}>{c.label}</span>
+                </span>
                 <span className={styles.chValue}>
                   {c.key === 'email' && copied ? t('contact.copied') : c.value}
                 </span>

@@ -3,6 +3,7 @@ import { useTranslation } from '../../../i18n/useTranslation.js';
 import { useSound } from '../../../hooks/useSound.js';
 import { profile, sections } from '../../../data/profile.js';
 import { hasLink } from '../../../lib/links.js';
+import { SOCIAL_ICONS } from '../../ui/socialIcons.js';
 import { XPIcon } from '../xpIcons.jsx';
 import styles from './XPStartMenu.module.css';
 
@@ -84,21 +85,29 @@ export function XPStartMenu({ onClose, onOpenWindow, onShutDown }) {
           <li className={styles.linksTitle} role="none" aria-hidden="true">
             {t('xp.startMenu.links')}
           </li>
-          {LINKS.filter((l) => hasLink(l.href)).map((l) => (
-            <li key={l.key} role="none">
-              <a
-                role="menuitem"
-                className={styles.linkItem}
-                href={l.href}
-                target={l.download ? undefined : '_blank'}
-                rel={l.download ? undefined : 'noreferrer'}
-                download={l.download}
-                onClick={() => play('select')}
-              >
-                {t(`contact.${l.key}`)}
-              </a>
-            </li>
-          ))}
+          {LINKS.filter((l) => hasLink(l.href)).map((l) => {
+            const icon = SOCIAL_ICONS[l.key];
+            return (
+              <li key={l.key} role="none">
+                <a
+                  role="menuitem"
+                  className={styles.linkItem}
+                  href={l.href}
+                  target={l.download ? undefined : '_blank'}
+                  rel={l.download ? undefined : 'noreferrer'}
+                  download={l.download}
+                  onClick={() => play('select')}
+                >
+                  {icon && (
+                    <svg className={styles.linkIcon} viewBox={icon.viewBox} fill="currentColor" aria-hidden="true">
+                      <path d={icon.path} />
+                    </svg>
+                  )}
+                  {t(`contact.${l.key}`)}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 

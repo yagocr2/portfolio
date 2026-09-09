@@ -102,6 +102,13 @@
   height: 100%;
 }
 
+.linkIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  color: #1a4fb0;
+}
+
 .footer {
   display: flex;
   justify-content: flex-end;
