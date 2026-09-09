@@ -1,5 +1,7 @@
 import { useTranslation } from '../../../i18n/useTranslation.js';
+import { useSound } from '../../../hooks/useSound.js';
 import { projects } from '../../../data/profile.js';
+import { hasLink } from '../../../lib/links.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelPanel } from '../../ui/PixelPanel/PixelPanel.jsx';
 import { TechBadge } from '../../ui/TechBadge/TechBadge.jsx';
@@ -8,6 +10,7 @@ import styles from './Projects.module.css';
 /** Tarjeta de un proyecto. */
 function ProjectCard({ project, t }) {
   const { id, tech, links, featured } = project;
+  const { play } = useSound();
 
   return (
     <PixelPanel
@@ -17,6 +20,7 @@ function ProjectCard({ project, t }) {
       glow={featured}
       className={styles.card}
       data-reveal
+      onMouseEnter={() => play('hoverCard')}
     >
       {featured && <span className={styles.featured}>★ {t('projects.featured')}</span>}
       <p className={styles.desc}>{t(`projects.${id}.desc`)}</p>
@@ -28,22 +32,24 @@ function ProjectCard({ project, t }) {
       </ul>
 
       <div className={styles.links}>
-        {links.demo && (
+        {hasLink(links.demo) && (
           <a
             className={styles.link}
             href={links.demo}
             target="_blank"
             rel="noreferrer"
+            onMouseEnter={() => play('hoverLink')}
           >
             ▶ {t('projects.demo')}
           </a>
         )}
-        {links.repo && (
+        {hasLink(links.repo) && (
           <a
             className={styles.link}
             href={links.repo}
             target="_blank"
             rel="noreferrer"
+            onMouseEnter={() => play('hoverLink')}
           >
             {'</>'} {t('projects.repo')}
           </a>

@@ -20,10 +20,17 @@
   },
   "hero": {
     "role": "FULLSTACK DEVELOPER",
-    "tagline": "I turn coffee and pixels into software that works.",
+    "taglines": [
+      "I build web applications end to end.",
+      "Solid backend, polished frontend.",
+      "Java, Spring, React and TypeScript.",
+      "Clean, maintainable code.",
+      "From the database to the interface."
+    ],
     "specsTitle": "STACK",
     "cta": "VIEW PROFILE",
-    "scroll": "SCROLL DOWN"
+    "scroll": "SCROLL DOWN",
+    "cv": "DOWNLOAD CV"
   },
   "about": {
     "title": "ABOUT ME",
@@ -129,7 +136,8 @@
     "linkedin": "LINKEDIN",
     "github": "GITHUB",
     "cta": "SEND EMAIL",
-    "copied": "COPIED!"
+    "copied": "COPIED!",
+    "cv": "DOWNLOAD CV"
   },
   "footer": {
     "madeWith": "Made with React + GSAP",
@@ -139,6 +147,7 @@
     "loading": "LOADING...",
     "backToTop": "BACK TO TOP",
     "toggleLang": "Toggle language",
-    "crtToggle": "CRT filter"
+    "crtToggle": "CRT filter",
+    "soundToggle": "Sound"
   }
 }

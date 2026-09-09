@@ -4,6 +4,18 @@
   min-height: 100dvh;
 }
 
+/* Columna de mandos flotantes (CRT, sonido…), esquina inferior derecha */
+.tools {
+  position: fixed;
+  right: var(--sp-4);
+  bottom: var(--sp-4);
+  z-index: calc(var(--z-overlay) + 1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--sp-2);
+}
+
 /* El <svg> del filtro de aberración cromática no debe ocupar espacio ni verse */
 .svgDefs {
   position: absolute;

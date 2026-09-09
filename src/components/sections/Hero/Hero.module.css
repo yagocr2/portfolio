@@ -113,7 +113,8 @@
 .tagline {
   font-size: var(--fs-lg);
   color: var(--c-text-dim);
-  min-height: 2.4em;
+  line-height: 1.4;
+  min-height: 3em;
 }
 
 .specs {

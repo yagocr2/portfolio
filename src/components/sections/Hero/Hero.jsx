@@ -3,6 +3,7 @@ import { gsap, useGSAP } from '../../../lib/gsap.js';
 import { useTranslation } from '../../../i18n/useTranslation.js';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion.js';
 import { profile, heroStack } from '../../../data/profile.js';
+import { hasLink } from '../../../lib/links.js';
 import { TechBadge } from '../../ui/TechBadge/TechBadge.jsx';
 import { PixelButton } from '../../ui/PixelButton/PixelButton.jsx';
 import { Typewriter } from '../../ui/Typewriter/Typewriter.jsx';
@@ -77,9 +78,9 @@ export function Hero({ active }) {
             <h1 className={styles.role}>{t('hero.role')}</h1>
             <p className={styles.tagline}>
               {active ? (
-                <Typewriter text={t('hero.tagline')} startDelay={700} speed={35} />
+                <Typewriter text={t('hero.taglines')} startDelay={700} speed={35} />
               ) : (
-                t('hero.tagline')
+                t('hero.taglines')[0]
               )}
             </p>
           </div>
@@ -105,6 +106,11 @@ export function Hero({ active }) {
             <PixelButton variant="pink" href={`mailto:${profile.links.email}`}>
               {t('nav.contact')}
             </PixelButton>
+            {hasLink(profile.links.cv) && (
+              <PixelButton variant="yellow" href={profile.links.cv} download>
+                {t('hero.cv')}
+              </PixelButton>
+            )}
           </div>
         </div>
       </div>

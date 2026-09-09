@@ -58,5 +58,7 @@
 
 .cta {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  gap: var(--sp-3);
 }

@@ -1,8 +1,4 @@
 .toggle {
-  position: fixed;
-  right: var(--sp-4);
-  bottom: var(--sp-4);
-  z-index: calc(var(--z-overlay) + 1);
   display: inline-flex;
   align-items: center;
   gap: var(--sp-2);
@@ -31,7 +27,9 @@
   width: 8px;
   height: 8px;
   background: var(--c-border);
-  transition: background var(--t-fast), box-shadow var(--t-fast);
+  transition:
+    background var(--t-fast),
+    box-shadow var(--t-fast);
 }
 
 .active {
@@ -42,12 +40,4 @@
 .active .dot {
   background: var(--c-green);
   box-shadow: 0 0 8px var(--c-green);
-}
-
-@media (max-width: 640px) {
-  .toggle {
-    right: var(--sp-3);
-    bottom: var(--sp-3);
-    padding: var(--sp-1) var(--sp-2);
-  }
 }

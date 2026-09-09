@@ -20,7 +20,8 @@ export const profile = {
   links: {
     email: 'yagocaleroroldan02@gmail.com',
     linkedin: 'https://www.linkedin.com/in/yagocr/',
-    github: 'https://github.com/yagocr2', 
+    github: 'https://github.com/yagocr2',
+    cv: '/CV_Yago_Calero.pdf',
   },
 };
 
