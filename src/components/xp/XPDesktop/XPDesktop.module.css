@@ -1,0 +1,39 @@
+.desktop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+  /* Sin transform/filter aquí: un ancestro con filter/transform se
+     convierte en el bloque contenedor de sus descendientes position:fixed,
+     lo que rompería cualquier overlay futuro (mismo motivo documentado en
+     CRTScreen.jsx). */
+}
+
+.surface {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.icons {
+  position: absolute;
+  top: var(--sp-3);
+  left: var(--sp-2);
+  z-index: var(--z-content);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: var(--sp-1);
+  max-height: calc(100% - var(--sp-4));
+}
+
+@media (max-width: 768px) {
+  .icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+}

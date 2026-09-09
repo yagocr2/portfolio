@@ -31,6 +31,13 @@ export function PixelPanel({
             ● ● ●
           </span>
           <span className={styles.title}>{title}</span>
+          {/* Puramente decorativo: da el aire de barra de ventana del tema
+              XP. Oculto en retro vía CSS (ver PixelPanel.module.css). */}
+          <span className={styles.winControls} aria-hidden="true">
+            <span className={styles.winBtn}>_</span>
+            <span className={styles.winBtn}>□</span>
+            <span className={`${styles.winBtn} ${styles.winClose}`}>✕</span>
+          </span>
         </div>
       )}
       <div className={styles.body}>{children}</div>

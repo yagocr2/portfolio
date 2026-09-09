@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Yago Calero — Fullstack Dev",
+    "description": "Yago Calero's portfolio — Fullstack Developer. A retro 8-bit adventure."
+  },
   "boot": {
     "system": "YAGO-OS v1.0",
     "booting": "BOOTING SYSTEM...",
@@ -44,7 +48,7 @@
       "location": "LOCATION",
       "locationValue": "Spain",
       "status": "STATUS",
-      "statusValue": "Available",
+      "statusValue": "Employed",
       "focus": "FOCUS",
       "focusValue": "Web & Mobile"
     }
@@ -148,6 +152,45 @@
     "backToTop": "BACK TO TOP",
     "toggleLang": "Toggle language",
     "crtToggle": "CRT filter",
-    "soundToggle": "Sound"
+    "soundToggle": "Sound",
+    "themeToggle": "Switch to Windows XP theme"
+  },
+  "xp": {
+    "start": "start",
+    "startMenu": {
+      "allPrograms": "All Programs",
+      "links": "Links",
+      "logOff": "Log Off",
+      "shutDown": "Turn Off Computer",
+      "credit": "Made with React + GSAP"
+    },
+    "window": {
+      "hero": "Welcome.exe",
+      "about": "About me.txt",
+      "skills": "Skills - Device Manager",
+      "experience": "Experience.doc",
+      "projects": "My Projects",
+      "contact": "Contact - Outlook Express"
+    },
+    "windowControls": {
+      "minimize": "Minimize",
+      "maximize": "Maximize",
+      "restore": "Restore",
+      "close": "Close"
+    },
+    "desktop": {
+      "myComputer": "My Computer",
+      "recycleBin": "Recycle Bin",
+      "showDesktop": "Show Desktop"
+    },
+    "boot": {
+      "starting": "Starting Windows...",
+      "welcomeTitle": "Windows",
+      "welcomeEdition": "XP",
+      "clickToBegin": "Click to enter"
+    },
+    "tray": {
+      "clock": "System clock"
+    }
   }
 }

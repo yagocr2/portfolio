@@ -13,6 +13,12 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#0d0221" />
     <link rel="canonical" href="https://yagocr.com/" />
+    <!-- Sitio bilingüe ES/EN sin rutas por idioma (el cambio es en cliente),
+         así que las tres variantes apuntan a la misma URL: sigue siendo la
+         forma correcta de declararlo sin añadir rutas nuevas. -->
+    <link rel="alternate" hreflang="es" href="https://yagocr.com/" />
+    <link rel="alternate" hreflang="en" href="https://yagocr.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://yagocr.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -26,6 +32,7 @@
     <meta property="og:image" content="https://yagocr.com/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Yago Calero — Fullstack Dev [8-bit]" />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:locale:alternate" content="en_US" />
 
@@ -56,6 +63,7 @@
         "jobTitle": "Fullstack Developer",
         "url": "https://yagocr.com/",
         "image": "https://yagocr.com/og-image.png",
+        "email": "mailto:yagocaleroroldan02@gmail.com",
         "sameAs": [
           "https://www.linkedin.com/in/yagocr/",
           "https://github.com/yagocr2"

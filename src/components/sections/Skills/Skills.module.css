@@ -19,3 +19,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Mismo motivo que en Hero/About: dentro de una XPWindow el viewport sigue
+   siendo de escritorio, así que este breakpoint nunca colapsaba el grid. */
+:root[data-theme='xp'] .grid {
+  grid-template-columns: 1fr;
+}

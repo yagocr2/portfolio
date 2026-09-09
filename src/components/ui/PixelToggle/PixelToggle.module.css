@@ -41,3 +41,38 @@
   background: var(--c-green);
   box-shadow: 0 0 8px var(--c-green);
 }
+
+/* ---- Tema XP: mando compacto biselado, a juego con la bandeja de tareas ---- */
+:root[data-theme='xp'] .toggle {
+  gap: 4px;
+  font-family: Tahoma, var(--font-body);
+  font-size: 0.65rem;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 3px 6px;
+  box-shadow: none;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='xp'] .toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+:root[data-theme='xp'] .dot {
+  background: #ffffff;
+  opacity: 0.4;
+}
+
+:root[data-theme='xp'] .active {
+  color: #ffffff;
+  border-color: transparent;
+}
+
+:root[data-theme='xp'] .active .dot {
+  background: #7dff6e;
+  opacity: 1;
+  box-shadow: 0 0 4px #7dff6e;
+}

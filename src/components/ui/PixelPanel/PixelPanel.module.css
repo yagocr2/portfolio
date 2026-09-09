@@ -31,6 +31,20 @@
   opacity: 0.7;
 }
 
+.winControls {
+  display: none;
+}
+
+.winBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 15px;
+  font-size: 0.6rem;
+  line-height: 1;
+}
+
 .title {
   white-space: nowrap;
   overflow: hidden;
@@ -56,4 +70,51 @@
 }
 .purple {
   --accent: var(--c-purple);
+}
+
+/* ---- Tema XP: panel como ventana clásica ---- */
+:root[data-theme='xp'] .panel {
+  border: 1px solid var(--xp-window-border);
+  border-radius: 4px 4px 2px 2px;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+  image-rendering: auto;
+}
+
+:root[data-theme='xp'] .glow {
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme='xp'] .titlebar {
+  gap: var(--sp-2);
+  background: var(--xp-title-active);
+  color: #ffffff;
+  font-family: Tahoma, var(--font-body);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: none;
+  letter-spacing: normal;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+:root[data-theme='xp'] .dots {
+  display: none;
+}
+
+:root[data-theme='xp'] .winControls {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+}
+
+:root[data-theme='xp'] .winBtn {
+  background: var(--xp-face);
+  border: 1px solid #003c74;
+  border-radius: 2px;
+  color: #000000;
+}
+
+:root[data-theme='xp'] .winClose {
+  background: var(--xp-close);
+  border-color: #7a1c08;
+  color: #ffffff;
 }
