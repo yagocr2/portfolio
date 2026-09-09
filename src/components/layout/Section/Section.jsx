@@ -24,19 +24,34 @@ export function Section({ id, title, subtitle, accent = 'cyan', children, classN
       const targets = gsap.utils.toArray('[data-reveal]', ref.current);
       if (!targets.length) return;
 
-      if (reduced) {
+      if (reduced || typeof IntersectionObserver === 'undefined') {
         gsap.set(targets, { opacity: 1, y: 0 });
         return;
       }
 
-      gsap.from(targets, {
-        opacity: 0,
-        y: 40,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: ref.current, start: 'top 75%', once: true },
-      });
+      // IntersectionObserver en vez de ScrollTrigger: no depende de medidas
+      // cacheadas del viewport, así que no falla con el resize de la barra de
+      // URL en móvil, la carga tardía de fuentes ni con secciones al final
+      // de la página cuyo "top" nunca cruza el umbral de ScrollTrigger.
+      gsap.set(targets, { opacity: 0, y: 40 });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          gsap.to(targets, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.12,
+            ease: 'power3.out',
+          });
+          observer.disconnect();
+        },
+        { rootMargin: '0px 0px -10% 0px', threshold: 0 },
+      );
+      observer.observe(ref.current);
+
+      return () => observer.disconnect();
     },
     { scope: ref, dependencies: [reduced] },
   );

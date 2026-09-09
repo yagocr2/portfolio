@@ -129,7 +129,35 @@
     "linkedin": "LINKEDIN",
     "github": "GITHUB",
     "cta": "ENVIAR EMAIL",
-    "copied": "¡COPIADO!"
+    "copied": "¡COPIADO!",
+    "mailOpened": "Abriendo tu cliente de correo...",
+    "modal": {
+      "title": "NUEVO_MENSAJE.exe",
+      "to": "PARA",
+      "reasonLabel": "MOTIVO",
+      "reason": {
+        "job": "OFERTA DE TRABAJO",
+        "collab": "COLABORACIÓN",
+        "freelance": "PROYECTO FREELANCE",
+        "question": "DUDA TÉCNICA",
+        "other": "OTRO"
+      },
+      "nameLabel": "TU NOMBRE",
+      "namePlaceholder": "Ash Ketchum",
+      "replyToLabel": "TU EMAIL",
+      "replyToPlaceholder": "tu@email.com",
+      "subjectLabel": "ASUNTO",
+      "subjectPlaceholder": "De qué quieres hablar",
+      "bodyLabel": "CUERPO DEL MENSAJE",
+      "bodyPlaceholder": "Escribe aquí tu mensaje...",
+      "charCount": "{count}/{max}",
+      "send": "ENVIAR",
+      "cancel": "CANCELAR",
+      "errorRequired": "Este campo es obligatorio",
+      "errorEmail": "Introduce un email válido",
+      "bodyReasonPrefix": "MOTIVO",
+      "bodyFromPrefix": "DE"
+    }
   },
   "footer": {
     "madeWith": "Hecho con React + GSAP",
