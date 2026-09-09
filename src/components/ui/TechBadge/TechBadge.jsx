@@ -1,4 +1,5 @@
 import { useTranslation } from '../../../i18n/useTranslation.js';
+import { useSound } from '../../../hooks/useSound.js';
 import { TECH_COLORS } from '../../../data/profile.js';
 import { TECH_ICONS } from './techIcons.js';
 import styles from './TechBadge.module.css';
@@ -15,13 +16,18 @@ import styles from './TechBadge.module.css';
  */
 export function TechBadge({ id, as: Tag = 'li', className = '' }) {
   const { t } = useTranslation();
+  const { play } = useSound();
   const label = t(`skills.names.${id}`);
   const color = TECH_COLORS[id] ?? 'cyan';
   const icon = TECH_ICONS[id];
   const cls = [styles.badge, className].filter(Boolean).join(' ');
 
   return (
-    <Tag className={cls} style={{ '--badge-color': `var(--c-${color})` }}>
+    <Tag
+      className={cls}
+      style={{ '--badge-color': `var(--c-${color})` }}
+      onMouseEnter={() => play('hoverBadge')}
+    >
       {icon && (
         <svg
           className={styles.icon}

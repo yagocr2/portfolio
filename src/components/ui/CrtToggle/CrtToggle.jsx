@@ -1,9 +1,10 @@
 import { useTranslation } from '../../../i18n/useTranslation.js';
-import styles from './CrtToggle.module.css';
+import { useSound } from '../../../hooks/useSound.js';
+import { PixelToggle } from '../PixelToggle/PixelToggle.jsx';
 
 /**
- * Mando flotante (esquina inferior derecha) que enciende/apaga el filtro de
- * tele antigua. Vive fuera de las capas del filtro para quedar siempre nítido.
+ * Mando que enciende/apaga el filtro de tele antigua. Envoltorio fino sobre
+ * PixelToggle; vive fuera de las capas del filtro para quedar siempre nítido.
  *
  * @param {object} props
  * @param {boolean} props.active
@@ -11,18 +12,20 @@ import styles from './CrtToggle.module.css';
  */
 export function CrtToggle({ active, onToggle }) {
   const { t } = useTranslation();
+  const { play } = useSound();
+
+  const handleToggle = () => {
+    play('blip');
+    onToggle();
+  };
 
   return (
-    <button
-      type="button"
-      className={`${styles.toggle} ${active ? styles.active : ''}`}
-      onClick={onToggle}
-      aria-pressed={active}
-      aria-label={t('ui.crtToggle')}
+    <PixelToggle
+      active={active}
+      onToggle={handleToggle}
+      label="CRT"
+      ariaLabel={t('ui.crtToggle')}
       title={t('ui.crtToggle')}
-    >
-      <span className={styles.dot} aria-hidden="true" />
-      CRT
-    </button>
+    />
   );
 }

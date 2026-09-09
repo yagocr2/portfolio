@@ -20,10 +20,17 @@
   },
   "hero": {
     "role": "DESARROLLADOR FULLSTACK",
-    "tagline": "Convierto café y píxeles en software que funciona.",
+    "taglines": [
+      "Desarrollo aplicaciones web de principio a fin.",
+      "Backend sólido, frontend cuidado.",
+      "Java, Spring, React y TypeScript.",
+      "Código limpio y mantenible.",
+      "De la base de datos a la interfaz."
+    ],
     "specsTitle": "STACK",
     "cta": "VER PERFIL",
-    "scroll": "DESPLÁZATE"
+    "scroll": "DESPLÁZATE",
+    "cv": "DESCARGAR CV"
   },
   "about": {
     "title": "SOBRE MÍ",
@@ -129,7 +136,8 @@
     "linkedin": "LINKEDIN",
     "github": "GITHUB",
     "cta": "ENVIAR EMAIL",
-    "copied": "¡COPIADO!"
+    "copied": "¡COPIADO!",
+    "cv": "DESCARGAR CV"
   },
   "footer": {
     "madeWith": "Hecho con React + GSAP",
@@ -139,6 +147,7 @@
     "loading": "CARGANDO...",
     "backToTop": "VOLVER ARRIBA",
     "toggleLang": "Cambiar idioma",
-    "crtToggle": "Filtro CRT"
+    "crtToggle": "Filtro CRT",
+    "soundToggle": "Sonido"
   }
 }

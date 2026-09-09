@@ -1,4 +1,5 @@
 import { useTranslation } from '../../../i18n/useTranslation.js';
+import { useSound } from '../../../hooks/useSound.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelPanel } from '../../ui/PixelPanel/PixelPanel.jsx';
 import styles from './About.module.css';
@@ -10,6 +11,7 @@ const CARD_KEYS = ['role', 'location', 'status', 'focus'];
  */
 export function About() {
   const { t } = useTranslation();
+  const { play } = useSound();
 
   return (
     <Section id="about" title={t('about.title')} subtitle={t('about.subtitle')} accent="pink">
@@ -27,7 +29,12 @@ export function About() {
 
         <ul className={styles.cards}>
           {CARD_KEYS.map((key) => (
-            <li key={key} className={styles.card} data-reveal>
+            <li
+              key={key}
+              className={styles.card}
+              data-reveal
+              onMouseEnter={() => play('hoverCard')}
+            >
               <span className={styles.cardLabel}>{t(`about.cards.${key}`)}</span>
               <span className={styles.cardValue}>{t(`about.cards.${key}Value`)}</span>
             </li>

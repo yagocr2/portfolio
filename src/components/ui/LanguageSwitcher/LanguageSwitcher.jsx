@@ -1,5 +1,6 @@
 import { useTranslation } from '../../../i18n/useTranslation.js';
 import { SUPPORTED_LANGS } from '../../../i18n/context.js';
+import { useSound } from '../../../hooks/useSound.js';
 import styles from './LanguageSwitcher.module.css';
 
 /**
@@ -7,6 +8,7 @@ import styles from './LanguageSwitcher.module.css';
  */
 export function LanguageSwitcher({ className = '' }) {
   const { lang, setLang, t } = useTranslation();
+  const { play } = useSound();
 
   return (
     <div
@@ -19,7 +21,11 @@ export function LanguageSwitcher({ className = '' }) {
           key={code}
           type="button"
           className={`${styles.opt} ${lang === code ? styles.active : ''}`}
-          onClick={() => setLang(code)}
+          onClick={() => {
+            play('select');
+            setLang(code);
+          }}
+          onMouseEnter={() => play('hoverLang')}
           aria-pressed={lang === code}
         >
           {code.toUpperCase()}

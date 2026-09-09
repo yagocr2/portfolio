@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from '../../../i18n/useTranslation.js';
+import { useSound } from '../../../hooks/useSound.js';
 import { profile } from '../../../data/profile.js';
+import { hasLink } from '../../../lib/links.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelButton } from '../../ui/PixelButton/PixelButton.jsx';
 import styles from './Contact.module.css';
@@ -10,6 +12,7 @@ import styles from './Contact.module.css';
  */
 export function Contact() {
   const { t } = useTranslation();
+  const { play } = useSound();
   const [copied, setCopied] = useState(false);
   const { email, linkedin, github } = profile.links;
 
@@ -50,11 +53,22 @@ export function Contact() {
             return (
               <li key={c.key} className={styles.channel} data-reveal>
                 {c.href ? (
-                  <a className={styles.chLink} href={c.href} target="_blank" rel="noreferrer">
+                  <a
+                    className={styles.chLink}
+                    href={c.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    onMouseEnter={() => play('hoverLink')}
+                  >
                     {Inner}
                   </a>
                 ) : (
-                  <button type="button" className={styles.chLink} onClick={c.onClick}>
+                  <button
+                    type="button"
+                    className={styles.chLink}
+                    onClick={c.onClick}
+                    onMouseEnter={() => play('hoverLink')}
+                  >
                     {Inner}
                   </button>
                 )}
@@ -67,6 +81,11 @@ export function Contact() {
           <PixelButton variant="green" href={`mailto:${email}`}>
             {t('contact.cta')}
           </PixelButton>
+          {hasLink(profile.links.cv) && (
+            <PixelButton variant="yellow" href={profile.links.cv} download>
+              {t('contact.cv')}
+            </PixelButton>
+          )}
         </div>
       </div>
     </Section>
