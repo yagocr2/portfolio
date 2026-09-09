@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { SoundContext } from './context.js';
 import * as sfx from '../lib/audio.js';
+import { useTheme } from '../theme/useTheme.js';
 
 const STORAGE_KEY = 'yago-portfolio-sound';
 
@@ -17,10 +18,17 @@ function detectInitial() {
  */
 export function SoundProvider({ children }) {
   const [enabled, setEnabled] = useState(detectInitial);
+  const { theme } = useTheme();
 
   useEffect(() => {
     window.localStorage.setItem(STORAGE_KEY, enabled ? '1' : '0');
   }, [enabled]);
+
+  // Cambia la receta de sonido activa cuando cambia el tema visual, para que
+  // los mismos nombres (`play('select')`, …) suenen distinto en XP.
+  useEffect(() => {
+    sfx.setSoundTheme(theme);
+  }, [theme]);
 
   const toggle = useCallback(() => {
     // El efecto secundario va fuera del updater de setState (StrictMode lo

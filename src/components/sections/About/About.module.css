@@ -67,3 +67,10 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Igual que en Hero: dentro de una XPWindow el viewport sigue siendo de
+   escritorio, así que el breakpoint de arriba nunca colapsaba el grid y el
+   texto quedaba apretado en dos columnas estrechas. Se fuerza 1 columna. */
+:root[data-theme='xp'] .grid {
+  grid-template-columns: 1fr;
+}

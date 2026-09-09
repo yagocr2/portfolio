@@ -25,3 +25,14 @@
   height: 1.15em;
   flex-shrink: 0;
 }
+
+/* Tema XP: --c-bg-deep es el azul de escritorio, no el fondo del badge aquí
+   (los badges viven sobre paneles blancos dentro de una ventana). */
+:root[data-theme='xp'] .badge {
+  border-width: 1px;
+  background: var(--c-surface);
+}
+
+:root[data-theme='xp'] .badge:hover {
+  color: var(--c-surface);
+}

@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { gsap, useGSAP } from '../../../lib/gsap.js';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion.js';
+import { useTheme } from '../../../theme/useTheme.js';
 import styles from './Section.module.css';
 
 /**
@@ -18,13 +19,19 @@ import styles from './Section.module.css';
 export function Section({ id, title, subtitle, accent = 'cyan', children, className = '' }) {
   const ref = useRef(null);
   const reduced = usePrefersReducedMotion();
+  const { theme } = useTheme();
 
   useGSAP(
     () => {
       const targets = gsap.utils.toArray('[data-reveal]', ref.current);
       if (!targets.length) return;
 
-      if (reduced || typeof IntersectionObserver === 'undefined') {
+      // En el escritorio XP las secciones viven dentro de ventanas que se
+      // abren/cierran/minimizan bajo demanda: el fade-in al hacer scroll no
+      // encaja ahí, y además una ventana oculta con display:none nunca
+      // dispararía el IntersectionObserver, dejando el contenido invisible
+      // para siempre. Se muestra directo, igual que con reduced-motion.
+      if (reduced || theme === 'xp' || typeof IntersectionObserver === 'undefined') {
         gsap.set(targets, { opacity: 1, y: 0 });
         return;
       }
@@ -53,7 +60,7 @@ export function Section({ id, title, subtitle, accent = 'cyan', children, classN
 
       return () => observer.disconnect();
     },
-    { scope: ref, dependencies: [reduced] },
+    { scope: ref, dependencies: [reduced, theme] },
   );
 
   return (

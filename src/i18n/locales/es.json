@@ -148,6 +148,45 @@
     "backToTop": "VOLVER ARRIBA",
     "toggleLang": "Cambiar idioma",
     "crtToggle": "Filtro CRT",
-    "soundToggle": "Sonido"
+    "soundToggle": "Sonido",
+    "themeToggle": "Cambiar a tema Windows XP"
+  },
+  "xp": {
+    "start": "inicio",
+    "startMenu": {
+      "allPrograms": "Todos los programas",
+      "links": "Enlaces",
+      "logOff": "Cerrar sesión",
+      "shutDown": "Apagar equipo",
+      "credit": "Hecho con React + GSAP"
+    },
+    "window": {
+      "hero": "Bienvenida.exe",
+      "about": "Sobre mí.txt",
+      "skills": "Skills - Administrador de dispositivos",
+      "experience": "Experiencia.doc",
+      "projects": "Mis proyectos",
+      "contact": "Contacto - Outlook Express"
+    },
+    "windowControls": {
+      "minimize": "Minimizar",
+      "maximize": "Maximizar",
+      "restore": "Restaurar",
+      "close": "Cerrar"
+    },
+    "desktop": {
+      "myComputer": "Mi PC",
+      "recycleBin": "Papelera de reciclaje",
+      "showDesktop": "Mostrar escritorio"
+    },
+    "boot": {
+      "starting": "Iniciando Windows...",
+      "welcomeTitle": "Windows",
+      "welcomeEdition": "XP",
+      "clickToBegin": "Haz clic para entrar"
+    },
+    "tray": {
+      "clock": "Reloj del sistema"
+    }
   }
 }

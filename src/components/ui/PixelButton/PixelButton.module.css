@@ -58,3 +58,31 @@
 .yellow {
   --accent: var(--c-yellow);
 }
+
+/* ---- Tema XP: botón 3D biselado, sin desplazamiento de sombra dura ---- */
+:root[data-theme='xp'] .btn {
+  text-transform: none;
+  color: var(--c-text);
+  background: var(--xp-face);
+  border: 1px solid var(--xp-3d-dark);
+  border-radius: 3px;
+  box-shadow:
+    inset 1px 1px 0 var(--xp-3d-light),
+    inset -1px -1px 0 var(--xp-3d-shadow);
+}
+
+:root[data-theme='xp'] .btn:hover {
+  filter: none;
+  background: #f5f3e9;
+  transform: none;
+  box-shadow:
+    inset 1px 1px 0 var(--xp-3d-light),
+    inset -1px -1px 0 var(--xp-3d-shadow);
+}
+
+:root[data-theme='xp'] .btn:active {
+  transform: none;
+  box-shadow:
+    inset -1px -1px 0 var(--xp-3d-light),
+    inset 1px 1px 0 var(--xp-3d-shadow);
+}

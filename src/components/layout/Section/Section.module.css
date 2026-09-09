@@ -40,3 +40,12 @@
     font-size: var(--fs-display-md);
   }
 }
+
+/* Tema XP: la sección vive dentro de una XPWindow, cuya barra de título ya
+   muestra el nombre — el encabezado propio sobra. */
+:root[data-theme='xp'] .section {
+  padding: var(--sp-4);
+}
+:root[data-theme='xp'] .header {
+  display: none;
+}

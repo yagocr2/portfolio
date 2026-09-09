@@ -216,3 +216,49 @@
     animation: none;
   }
 }
+
+/* ---- Tema XP: Hero se reutiliza tal cual dentro de una XPWindow, sin
+   viewport propio ni botón de scroll (el escritorio no hace scroll). ---- */
+:root[data-theme='xp'] .hero {
+  min-height: 0;
+  padding: var(--sp-4);
+}
+
+:root[data-theme='xp'] .cornerTL,
+:root[data-theme='xp'] .cornerBR,
+:root[data-theme='xp'] .scroll {
+  display: none;
+}
+
+:root[data-theme='xp'] .avatarFrame {
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme='xp'] .introPanel {
+  background: var(--c-surface);
+}
+
+/* El breakpoint de abajo (@media max-width:860px) mira el ancho del
+   VIEWPORT, pero aquí el contenido vive dentro de una XPWindow bastante más
+   estrecha que la pantalla — el grid de 2 columnas nunca colapsaba y el
+   avatar/contenido se apretaban. Se fuerza siempre la columna única, con
+   los mismos valores que ya usa el colapso móvil. */
+:root[data-theme='xp'] .inner {
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+  text-align: center;
+}
+
+:root[data-theme='xp'] .cardCol {
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+:root[data-theme='xp'] .avatar {
+  max-width: 100%;
+}
+
+:root[data-theme='xp'] .stackList,
+:root[data-theme='xp'] .actions {
+  justify-content: center;
+}

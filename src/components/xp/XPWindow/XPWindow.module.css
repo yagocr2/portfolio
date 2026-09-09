@@ -1,0 +1,149 @@
+.window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  min-height: 200px;
+  background: var(--xp-face);
+  border: 1px solid var(--xp-window-border);
+  border-radius: 8px 8px 3px 3px;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.window.dragging {
+  will-change: transform;
+}
+
+.window.active {
+  border-color: var(--xp-window-border);
+}
+
+.window:not(.active) {
+  border-color: var(--xp-3d-shadow);
+}
+
+.window.maximized {
+  inset: 0;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  flex: 0 0 auto;
+  padding: 0 3px 0 4px;
+  background: var(--xp-title-inactive);
+  color: #ffffff;
+  font-family: Tahoma, var(--font-body);
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  touch-action: none;
+  cursor: default;
+  user-select: none;
+}
+
+.window.active .titlebar {
+  background: var(--xp-title-active);
+}
+
+.titleIcon {
+  display: flex;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.titleIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.controls {
+  display: flex;
+  gap: 2px;
+  flex: 0 0 auto;
+}
+
+.ctrlBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 21px;
+  height: 20px;
+  padding: 0;
+  background: var(--xp-face);
+  border: 1px solid #003c74;
+  border-radius: 3px;
+  color: #000000;
+  font-family: Tahoma, sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 1;
+  box-shadow:
+    inset 1px 1px 0 var(--xp-3d-light),
+    inset -1px -1px 0 var(--xp-3d-shadow);
+}
+
+.ctrlBtn:hover {
+  filter: brightness(1.08);
+}
+
+.ctrlBtn:active {
+  box-shadow:
+    inset -1px -1px 0 var(--xp-3d-light),
+    inset 1px 1px 0 var(--xp-3d-shadow);
+}
+
+.closeBtn {
+  background: var(--xp-close);
+  border-color: #7a1c08;
+  color: #ffffff;
+}
+
+.closeBtn:hover {
+  background: var(--xp-close-hover);
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  background: var(--c-surface);
+  color: var(--c-text);
+  /* Las secciones reutilizadas están calibradas para una página larga; ese
+     aire sobra dentro de una ventana. Se anulan solo los tokens de espaciado
+     y ancho — cada *.module.css los consume vía var() y se recalcula solo,
+     sin tocar ni una regla de las secciones. */
+  --sp-6: 20px;
+  --sp-7: 20px;
+  --sp-8: 24px;
+  --max-w: none;
+}
+
+@media (max-width: 768px) {
+  .window {
+    position: fixed !important;
+    inset: 0 0 var(--xp-taskbar-h) 0 !important;
+    width: auto !important;
+    height: auto !important;
+    transform: none !important;
+    border-radius: 0;
+  }
+
+  .maximizeBtn {
+    display: none;
+  }
+}

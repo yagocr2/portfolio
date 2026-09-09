@@ -113,6 +113,79 @@ img {
   }
 }
 
+/* ============================================================
+   Tema Windows XP — contrapartes de las reglas globales de arriba.
+   Nada de lo anterior se modifica; estas reglas solo se activan bajo
+   [data-theme="xp"] en <html> (ver ThemeProvider).
+   ============================================================ */
+:root[data-theme='xp'] body {
+  -webkit-font-smoothing: antialiased;
+  font-smooth: auto;
+  image-rendering: auto;
+  overflow: hidden; /* el escritorio no scrollea; scrollean las ventanas */
+}
+
+:root[data-theme='xp'] h1,
+:root[data-theme='xp'] h2,
+:root[data-theme='xp'] h3,
+:root[data-theme='xp'] h4 {
+  text-shadow: none;
+  font-weight: bold;
+}
+
+:root[data-theme='xp'] button {
+  font-family: var(--font-body);
+}
+
+:root[data-theme='xp'] img {
+  image-rendering: auto;
+}
+
+:root[data-theme='xp'] ::selection {
+  background: var(--xp-select);
+  color: #ffffff;
+}
+
+/* Scrollbar clásica de Windows, con botones de flecha en los extremos */
+:root[data-theme='xp'] ::-webkit-scrollbar {
+  width: 17px;
+  height: 17px;
+}
+:root[data-theme='xp'] ::-webkit-scrollbar-track {
+  background: #f1efe2;
+}
+:root[data-theme='xp'] ::-webkit-scrollbar-thumb {
+  background: var(--xp-face);
+  border: 1px solid var(--xp-3d-shadow);
+  box-shadow:
+    inset 1px 1px 0 var(--xp-3d-light),
+    inset -1px -1px 0 var(--xp-3d-dark);
+}
+:root[data-theme='xp'] ::-webkit-scrollbar-button {
+  display: block;
+  width: 17px;
+  height: 17px;
+  background: var(--xp-face);
+  border: 1px solid var(--xp-3d-shadow);
+  box-shadow:
+    inset 1px 1px 0 var(--xp-3d-light),
+    inset -1px -1px 0 var(--xp-3d-dark);
+}
+
+/* Cursores: sustituye el puntero pixelado por el cursor normal del sistema */
+@media (hover: hover) and (pointer: fine) {
+  :root[data-theme='xp'] body {
+    cursor: default;
+  }
+
+  :root[data-theme='xp'] a,
+  :root[data-theme='xp'] button,
+  :root[data-theme='xp'] [role='button'],
+  :root[data-theme='xp'] summary {
+    cursor: pointer;
+  }
+}
+
 /* Respeta usuarios que prefieren menos movimiento */
 @media (prefers-reduced-motion: reduce) {
   html {
