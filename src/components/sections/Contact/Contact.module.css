@@ -44,6 +44,19 @@
   border-color: var(--c-pink);
 }
 
+.chMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.chIcon {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+  color: var(--c-pink);
+}
+
 .chLabel {
   font-family: var(--font-display);
   font-size: 0.5rem;

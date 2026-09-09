@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useTranslation } from '../../../i18n/useTranslation.js';
 import { useSound } from '../../../hooks/useSound.js';
 import { profile } from '../../../data/profile.js';
-import { hasLink } from '../../../lib/links.js';
+import { hasLink, handleFromUrl } from '../../../lib/links.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelButton } from '../../ui/PixelButton/PixelButton.jsx';
+import { SOCIAL_ICONS } from '../../ui/socialIcons.js';
 import styles from './Contact.module.css';
 
 /**
@@ -29,8 +30,8 @@ export function Contact() {
 
   const channels = [
     { key: 'email', label: t('contact.email'), value: email, onClick: copyEmail },
-    { key: 'linkedin', label: t('contact.linkedin'), value: '@' + profile.handle, href: linkedin },
-    { key: 'github', label: t('contact.github'), value: '@' + profile.handle, href: github },
+    { key: 'linkedin', label: t('contact.linkedin'), value: '@' + handleFromUrl(linkedin), href: linkedin },
+    { key: 'github', label: t('contact.github'), value: '@' + handleFromUrl(github), href: github },
   ];
 
   return (
@@ -42,9 +43,17 @@ export function Contact() {
 
         <ul className={styles.channels}>
           {channels.map((c) => {
+            const icon = SOCIAL_ICONS[c.key];
             const Inner = (
               <>
-                <span className={styles.chLabel}>{c.label}</span>
+                <span className={styles.chMeta}>
+                  {icon && (
+                    <svg className={styles.chIcon} viewBox={icon.viewBox} fill="currentColor" aria-hidden="true">
+                      <path d={icon.path} />
+                    </svg>
+                  )}
+                  <span className={styles.chLabel}>{c.label}</span>
+                </span>
                 <span className={styles.chValue}>
                   {c.key === 'email' && copied ? t('contact.copied') : c.value}
                 </span>

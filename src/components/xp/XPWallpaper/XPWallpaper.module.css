@@ -1,0 +1,63 @@
+.wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-bg);
+  overflow: hidden;
+  background: var(--xp-desktop-sky);
+}
+
+.sky {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 70% 15%, rgba(255, 255, 255, 0.5), transparent 60%);
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  filter: blur(6px);
+}
+
+.cloud1 {
+  top: 10%;
+  left: 8%;
+  width: 160px;
+  height: 46px;
+}
+
+.cloud2 {
+  top: 18%;
+  left: 55%;
+  width: 120px;
+  height: 34px;
+}
+
+.cloud3 {
+  top: 8%;
+  left: 40%;
+  width: 90px;
+  height: 26px;
+  opacity: 0.7;
+}
+
+.hillBack {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -20%;
+  height: 55%;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: linear-gradient(180deg, #9fd05c 0%, #6cae3a 100%);
+  opacity: 0.9;
+}
+
+.hillFront {
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  bottom: -25%;
+  height: 45%;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: var(--xp-desktop-hill);
+}

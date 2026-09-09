@@ -75,3 +75,105 @@
   /* ---- Anchos de layout ---- */
   --max-w: 1100px;
 }
+
+/**
+ * Tema Windows XP / Win9x. Se aplica sobre <html data-theme="xp"> (ver
+ * ThemeProvider). Redefine los mismos nombres de token que usa el tema retro
+ * — incluidos los que se consumen desde `style` inline (Section.jsx,
+ * TechBadge.jsx) — para que todo el sitio se repinte sin tocar ninguna regla
+ * existente. Añade además tokens propios (prefijo --xp-*) para las piezas
+ * exclusivas del escritorio (ventanas, barra de tareas, bisel 3D).
+ */
+:root[data-theme='xp'] {
+  /* ---- Superficies ---- */
+  --c-bg: #3a6ea5;
+  /* En retro, --c-bg-deep es casi negro y sirve de "neutro de máximo
+     contraste" para el texto/chapa de una insignia apoyada sobre un acento
+     brillante (nav activo, badges "ACTUAL"/"DESTACADO", el nameplate del
+     Hero…). Como fondo de página no se usa en XP (el escritorio pinta su
+     propio wallpaper vía --xp-desktop-sky/--xp-desktop-hill), así que aquí
+     se reutiliza para el mismo papel funcional pero con el valor opuesto:
+     los acentos de XP son oscuros/saturados (cian #0058e6, verde #008000,
+     oliva #808000…), así que el neutro de contraste es blanco, no negro.
+     Sin este cambio, azul-sobre-azul volvía ilegible el nameplate y varios
+     badges. */
+  --c-bg-deep: #ffffff;
+  --c-surface: #ece9d8;
+  --c-surface-2: #ffffff;
+  --c-border: #919b9c;
+
+  /* ---- Acentos: remapeo a la paleta clásica de Windows ---- */
+  --c-pink: #800080;
+  --c-cyan: #0058e6;
+  --c-green: #008000;
+  --c-yellow: #808000;
+  --c-purple: #5a3696;
+  --c-orange: #c56a00;
+  --c-blue: #000080;
+
+  /* ---- Semánticos ---- */
+  --c-hp: #800080;
+  --c-mp: #0058e6;
+  --c-xp: #008000;
+
+  /* ---- Texto ---- */
+  --c-text: #000000;
+  --c-text-dim: #4d4d4d;
+  --c-text-shadow: transparent;
+
+  /* ---- Tipografía: Tahoma es la fuente de sistema clásica de Windows ---- */
+  --font-display: Tahoma, 'Trebuchet MS', 'Segoe UI', Verdana, sans-serif;
+  --font-body: Tahoma, 'Segoe UI', Verdana, Geneva, sans-serif;
+
+  --fs-xs: 0.6875rem;
+  --fs-sm: 0.75rem;
+  --fs-md: 0.8125rem;
+  --fs-lg: 1rem;
+  --fs-xl: 1.375rem;
+
+  --fs-display-sm: 0.6875rem;
+  --fs-display-md: 0.75rem;
+  --fs-display-lg: 1.125rem;
+  --fs-display-xl: 1.5rem;
+
+  /* ---- Bordes / sombras ---- */
+  --pixel: 1px;
+  --shadow-hard: 2px 2px 4px rgba(0, 0, 0, 0.35);
+  --shadow-glow-pink: none;
+  --shadow-glow-cyan: none;
+
+  /* ---- Tokens exclusivos del escritorio XP ---- */
+  --xp-face: #ece9d8;
+  --xp-face-dark: #d4d0c8;
+  --xp-3d-light: #ffffff;
+  --xp-3d-shadow: #808080;
+  --xp-3d-dark: #404040;
+  --xp-window-border: #0831d9;
+  --xp-title-active: linear-gradient(
+    180deg,
+    #0058e6 0%,
+    #3a93ff 8%,
+    #288eff 40%,
+    #127bfb 60%,
+    #0058e6 88%,
+    #0058e6 100%
+  );
+  --xp-title-inactive: linear-gradient(180deg, #7ba2e7 0%, #94bbef 8%, #7da9e9 40%, #6d97d9 100%);
+  --xp-close: #e8491c;
+  --xp-close-hover: #f56b4e;
+  --xp-select: #316ac5;
+  --xp-desktop-sky: linear-gradient(180deg, #4a8fdb 0%, #78b0e8 55%, #a8d4f5 100%);
+  --xp-desktop-hill: linear-gradient(180deg, #7ab648 0%, #4a8b2c 100%);
+  --xp-taskbar: linear-gradient(
+    180deg,
+    #2f71e0 0%,
+    #2861ce 4%,
+    #2e6bd9 8%,
+    #3a86f5 50%,
+    #1857d1 94%,
+    #1350c9 100%
+  );
+  --xp-taskbar-h: 34px;
+  --xp-start: linear-gradient(180deg, #4fa93c 0%, #6fc257 12%, #3c8b37 88%, #2d6e28 100%);
+  --xp-start-hover: linear-gradient(180deg, #5fc44a 0%, #7fd267 12%, #48a341 88%, #357c30 100%);
+}

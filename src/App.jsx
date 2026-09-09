@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTheme } from './theme/useTheme.js';
 import { CRTScreen } from './components/layout/CRTScreen/CRTScreen.jsx';
 import { ParallaxBackground } from './components/background/ParallaxBackground/ParallaxBackground.jsx';
 import { GameMenu } from './components/navigation/GameMenu/GameMenu.jsx';
@@ -10,14 +11,26 @@ import { Skills } from './components/sections/Skills/Skills.jsx';
 import { Experience } from './components/sections/Experience/Experience.jsx';
 import { Projects } from './components/sections/Projects/Projects.jsx';
 import { Contact } from './components/sections/Contact/Contact.jsx';
+import { XPDesktop } from './components/xp/XPDesktop/XPDesktop.jsx';
 
 /**
  * Raíz de la aplicación. Mientras la "consola" no ha arrancado mostramos la
  * BootScreen por encima; al pulsar START se revela el portfolio y se dispara
  * la animación de entrada del Hero (prop `started`).
+ *
+ * Bajo el tema XP se renderiza un shell completamente distinto (XPDesktop):
+ * CRTScreen/GameMenu/ParallaxBackground/Footer son piezas del tema retro y
+ * no se montan, en vez de apagarse a medias con condicionales internos.
+ * `started` se mantiene aquí arriba para que cambiar de tema con la sesión
+ * ya arrancada no dispare de nuevo la pantalla de arranque.
  */
 export default function App() {
   const [started, setStarted] = useState(false);
+  const { theme } = useTheme();
+
+  if (theme === 'xp') {
+    return <XPDesktop started={started} onStart={() => setStarted(true)} />;
+  }
 
   return (
     <CRTScreen>

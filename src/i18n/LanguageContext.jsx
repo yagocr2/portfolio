@@ -51,6 +51,17 @@ export function LanguageProvider({ children }) {
     [lang],
   );
 
+  // El <title> y la meta description viven estáticos en index.html (en
+  // español, para que un crawler que no ejecute JS siga viendo algo
+  // correcto); aquí se actualizan en cliente al cambiar de idioma, igual
+  // que ya se hace arriba con documentElement.lang. Los og:*/twitter:*
+  // no se tocan: los bots de redes sociales no ejecutan JS, así que solo
+  // leerían el valor inicial del HTML servido.
+  useEffect(() => {
+    document.title = t('seo.title');
+    document.querySelector('meta[name="description"]')?.setAttribute('content', t('seo.description'));
+  }, [t]);
+
   const toggleLang = useCallback(() => {
     setLang((prev) => (prev === 'es' ? 'en' : 'es'));
   }, []);
