@@ -12,7 +12,7 @@ import avatar from '../assets/avatar.jpg';
 
 export const profile = {
   name: 'Yago Calero',
-  handle: 'yagocr2',
+  handle: 'yagocr',
   level: 23, 
   avatar: avatar,
 
@@ -135,7 +135,7 @@ export const projects = [
   {
     id: 'project1',
     tech: ['react', 'vite', 'gsap'],
-    links: { demo: '#', repo: '#' },
+    links: { demo: 'https://yagocr.com', repo: 'https://github.com/yagocr2/portfolio' },
     featured: true,
   },
   {

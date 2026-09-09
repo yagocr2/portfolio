@@ -1,4 +1,8 @@
 {
+  "seo": {
+    "title": "Yago Calero — Fullstack Dev [8-bit]",
+    "description": "Portfolio de Yago Calero — Fullstack Developer. Una aventura retro 8-bits."
+  },
   "boot": {
     "system": "YAGO-OS v1.0",
     "booting": "INICIANDO SISTEMA...",

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from '../../../i18n/useTranslation.js';
 import { useSound } from '../../../hooks/useSound.js';
 import { profile } from '../../../data/profile.js';
-import { hasLink } from '../../../lib/links.js';
+import { hasLink, handleFromUrl } from '../../../lib/links.js';
 import { Section } from '../../layout/Section/Section.jsx';
 import { PixelButton } from '../../ui/PixelButton/PixelButton.jsx';
 import { SOCIAL_ICONS } from '../../ui/socialIcons.js';
@@ -30,8 +30,8 @@ export function Contact() {
 
   const channels = [
     { key: 'email', label: t('contact.email'), value: email, onClick: copyEmail },
-    { key: 'linkedin', label: t('contact.linkedin'), value: '@' + profile.handle, href: linkedin },
-    { key: 'github', label: t('contact.github'), value: '@' + profile.handle, href: github },
+    { key: 'linkedin', label: t('contact.linkedin'), value: '@' + handleFromUrl(linkedin), href: linkedin },
+    { key: 'github', label: t('contact.github'), value: '@' + handleFromUrl(github), href: github },
   ];
 
   return (
