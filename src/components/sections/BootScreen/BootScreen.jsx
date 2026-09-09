@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap, useGSAP } from '../../../lib/gsap.js';
 import { useTranslation } from '../../../i18n/useTranslation.js';
 import { usePrefersReducedMotion } from '../../../hooks/usePrefersReducedMotion.js';
+import { useSound } from '../../../hooks/useSound.js';
 import { profile } from '../../../data/profile.js';
 import { LanguageSwitcher } from '../../ui/LanguageSwitcher/LanguageSwitcher.jsx';
 import styles from './BootScreen.module.css';
@@ -16,6 +17,7 @@ export function BootScreen({ onStart }) {
   const barRef = useRef(null);
   const { t } = useTranslation();
   const reduced = usePrefersReducedMotion();
+  const { play } = useSound();
   const [ready, setReady] = useState(false);
   const [leaving, setLeaving] = useState(false);
 
@@ -45,6 +47,7 @@ export function BootScreen({ onStart }) {
   // Pulsar cualquier tecla / clic cuando está listo dispara el inicio.
   const handleStart = () => {
     if (!ready || leaving) return;
+    play('start');
     setLeaving(true);
     if (reduced) {
       onStart?.();

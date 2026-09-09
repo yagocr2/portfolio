@@ -2,6 +2,7 @@ import { useCallback, useMemo, useRef, useState } from 'react';
 import { gsap, useGSAP } from '../../../lib/gsap.js';
 import { useTranslation } from '../../../i18n/useTranslation.js';
 import { useScrollSpy } from '../../../hooks/useScrollSpy.js';
+import { useSound } from '../../../hooks/useSound.js';
 import { sections, profile } from '../../../data/profile.js';
 import { LanguageSwitcher } from '../../ui/LanguageSwitcher/LanguageSwitcher.jsx';
 import styles from './GameMenu.module.css';
@@ -15,16 +16,21 @@ export function GameMenu() {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const overlayRef = useRef(null);
+  const { play } = useSound();
 
   // Todas las secciones se observan; en el menú mostramos las marcadas + Inicio.
   const sectionIds = useMemo(() => sections.map((s) => s.id), []);
   const navItems = useMemo(() => sections, []);
   const activeId = useScrollSpy(sectionIds);
 
-  const goTo = useCallback((id) => {
-    setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }, []);
+  const goTo = useCallback(
+    (id) => {
+      setOpen(false);
+      play('select');
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    },
+    [play],
+  );
 
   // Animación de apertura/cierre del overlay móvil.
   useGSAP(
@@ -55,7 +61,12 @@ export function GameMenu() {
 
   return (
     <header className={styles.bar}>
-      <button className={styles.brand} onClick={() => goTo('hero')} type="button">
+      <button
+        className={styles.brand}
+        onClick={() => goTo('hero')}
+        onMouseEnter={() => play('blip')}
+        type="button"
+      >
         <span className={styles.power} aria-hidden="true" />
         {profile.handle}
         <span className={styles.os}>.os</span>
@@ -70,6 +81,7 @@ export function GameMenu() {
                 type="button"
                 className={`${styles.link} ${activeId === s.id ? styles.active : ''}`}
                 onClick={() => goTo(s.id)}
+                onMouseEnter={() => play('blip')}
                 aria-current={activeId === s.id ? 'true' : undefined}
               >
                 <span className={styles.icon} aria-hidden="true">
@@ -90,6 +102,7 @@ export function GameMenu() {
           aria-label={t('nav.menu')}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
+          onMouseEnter={() => play('hoverToggle')}
         >
           {open ? '✕' : '≡'}
         </button>

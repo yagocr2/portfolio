@@ -1,5 +1,6 @@
 import { useCrtMode } from '../../../hooks/useCrtMode.js';
 import { CrtToggle } from '../../ui/CrtToggle/CrtToggle.jsx';
+import { SoundToggle } from '../../ui/SoundToggle/SoundToggle.jsx';
 import styles from './CRTScreen.module.css';
 
 /**
@@ -61,7 +62,10 @@ export function CRTScreen({ children }) {
         </>
       )}
 
-      <CrtToggle active={crtMode} onToggle={() => setCrtMode((v) => !v)} />
+      <div className={styles.tools}>
+        <SoundToggle />
+        <CrtToggle active={crtMode} onToggle={() => setCrtMode((v) => !v)} />
+      </div>
     </div>
   );
 }

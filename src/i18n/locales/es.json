@@ -29,7 +29,8 @@
     ],
     "specsTitle": "STACK",
     "cta": "VER PERFIL",
-    "scroll": "DESPLÁZATE"
+    "scroll": "DESPLÁZATE",
+    "cv": "DESCARGAR CV"
   },
   "about": {
     "title": "SOBRE MÍ",
@@ -135,7 +136,8 @@
     "linkedin": "LINKEDIN",
     "github": "GITHUB",
     "cta": "ENVIAR EMAIL",
-    "copied": "¡COPIADO!"
+    "copied": "¡COPIADO!",
+    "cv": "DESCARGAR CV"
   },
   "footer": {
     "madeWith": "Hecho con React + GSAP",
@@ -145,6 +147,7 @@
     "loading": "CARGANDO...",
     "backToTop": "VOLVER ARRIBA",
     "toggleLang": "Cambiar idioma",
-    "crtToggle": "Filtro CRT"
+    "crtToggle": "Filtro CRT",
+    "soundToggle": "Sonido"
   }
 }
